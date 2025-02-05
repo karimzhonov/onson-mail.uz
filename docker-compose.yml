@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  front:
+      container_name: onson-front
+      build: ./app/
+      ports:
+        - "3000:3000"
+      command: sh -c "npm run dev"
+      restart: always
+      env_file:
+        - ./app/.env
+      volumes:
+        - ./app/:/app/
