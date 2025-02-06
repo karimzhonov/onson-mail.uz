@@ -1,4 +1,4 @@
-FROM node:20.18.2-slim as prod
+FROM node:lts-alpine
 
 COPY package*.json ./
 RUN npm cache clear -f
