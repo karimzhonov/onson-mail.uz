@@ -4,9 +4,10 @@ services:
 
   front:
       container_name: onson-front
-      build: ./app/
+      build:
+        context: ./app/
+        dockerfile: Dockerfile.prod
       ports:
         - "3000:3000"
-      command: sh -c "npm run build && npm run serve"
       env_file:
         - ./app/.env

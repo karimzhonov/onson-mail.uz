@@ -9,16 +9,23 @@ export default defineNuxtConfig({
         '@nuxtjs/color-mode',
         '@nuxt/image',
         '@nuxtjs/i18n',
+        '@nuxtjs/sitemap',
     ],
+    site: {
+        enabled: true,
+        url: 'https://onson-mail.uz',
+        urls: ['/'],
+        name: 'Onson Mail',
+        autoI18n: 'prefix_except_default',
+        debug: true
+    },
 
     i18n: {
-        strictMessage: true,
-        escapeHtml: true,
         lazy: true,
         langDir: 'locales',
         strategy: "prefix_except_default",
         locales: [
-            {code: 'ru', language: 'ru', name: 'Русский', file: 'ru.json', cache: false },
+            {code: 'ru', language: 'ru', name: 'Русский', file: 'ru.json', cache: false},
             {code: 'uz', language: 'uz', name: "O'zbek", file: 'uz.json', cache: false}
         ],
         defaultLocale: 'ru',
