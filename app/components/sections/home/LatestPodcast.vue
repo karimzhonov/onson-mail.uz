@@ -3,7 +3,7 @@
         <AtomsContainer>
             <div class="flex justify-between items-center pb-6">
                 <div class="">
-                    <AtomsTitle texte="Наши услуги" />
+                    <AtomsTitle :texte="$t('Наши услуги')" />
                 </div>
             </div>
             <div class="relative">
@@ -19,7 +19,7 @@
                 </div><!--  -->
                 <div  
                     class="flex absolute top-1/2 -right-5 -translate-y-1/2 z-10 transition duration-300 ease-linear" 
-                    :class="nextIsVisible?'visible opacity-100':'insisible opacity-0'">
+                    :class="nextIsVisible ? 'visible opacity-100':'insisible opacity-0'">
                     <AtomsSwiperNavButton @click="scrollToRight()">
                         <IconsNextIco />
                     </AtomsSwiperNavButton>
@@ -29,25 +29,25 @@
                     class="flex items-stretch gap-5 overflow-hidden overflow-x-auto invisible-scroll">
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="Карго" duration="23min" href="#" desc="Надежные и оперативные грузоперевозка"
+                        <CardsRecentPod :title="$t('Грузоперевозки')" duration="23min" href="#" :desc="$t('Надежные и оперативные грузоперевозка')"
                             cover-image="/images/plane.jpeg" />
                     </div>
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="Туризм" duration="1h:22min" href="#" desc="Индивидуальные и корпоративные туры"
+                        <CardsRecentPod :title="$t('Туризм')" duration="1h:22min" href="#" :desc="$t('Индивидуальные и корпоративные туры')"
                             cover-image="/images/turizm.webp" />
                     </div>
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="Консалтинг" duration="12min" href="#" desc="Профессиональные услуги консалтинга"
+                        <CardsRecentPod :title="$t('Консалтинг')" duration="12min" href="#" :desc="$t('Профессиональные услуги консалтинга')"
                             cover-image="/images/consalting.jpg" />
                     </div>
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod title="Таможенное оформление" duration="50min" href="#" desc="Быстрое и эффективное таможенное оформление"
+                        <CardsRecentPod :title="$t('Таможенное оформление')" duration="50min" href="#" :desc="$t('Быстрое и эффективное таможенное оформление')"
                             cover-image="/images/custom.webp" />
                     </div>
                 </div>
@@ -71,8 +71,8 @@ function initScroll(): void {
     if (typeof element === "undefined" || element === null) {
         return
     }
-    prevIsVisible.value = element.scrollLeft <= 0 ? false : true
-    nextIsVisible.value = element.scrollLeft >= element.scrollWidth - element.offsetWidth - 1?false:true
+    prevIsVisible.value = element.scrollLeft > 0
+    nextIsVisible.value = element.scrollLeft < element.scrollWidth - element.offsetWidth - 1
 }
 
 function scrollToLeft():void{

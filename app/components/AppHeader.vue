@@ -5,25 +5,7 @@ export default {
     return {
       deferredPrompt: null,
       navIsOpen: useState('navIsOpen', () => false),
-      navLinks: [
-        {
-          text: "Наши услуги",
-          href: "/#services"
-        },
-        {
-          text: "О нас",
-          href: "/#about"
-        },
-        {
-          text: "Отслежовать посылку",
-          href: "/#tracker"
-        },
-        {
-          text: "Наши достижения",
-          href: "/#records"
-        }
 
-      ]
     }
   },
   created() {
@@ -38,12 +20,35 @@ export default {
     });
   },
   methods: {
+    localPath: useLocalePath(),
     toggleNav(event) {
       event.preventDefault()
       this.navIsOpen = !this.navIsOpen
     },
     install() {
       this.deferredPrompt.prompt();
+    }
+  },
+  computed: {
+    navLinks() {
+      return [
+        {
+          text: this.$t("Наши услуги"),
+          href: this.localPath("/#services"),
+        },
+        {
+          text: this.$t("О нас"),
+          href: this.localPath("/#about")
+        },
+        {
+          text: this.$t("Отслежовать посылку"),
+          href: this.localPath("/#tracker")
+        },
+        {
+          text: this.$t("Наши достижения"),
+          href: this.localPath("/#records")
+        }
+      ]
     }
   }
 }
@@ -55,9 +60,9 @@ export default {
       <nav class="flex items-center justify-between w-full relative">
         <!-- app logo -->
         <div class="inline-flex relative bg-inherit">
-          <NuxtLink to="/" class=" flex items-center gap-2">
+          <NuxtLink :to="localPath('/')" class=" flex items-center gap-2">
                         <span class="flex">
-                            <img src="/logo.png" width="50" height="50"/>
+                            <img src="/logo.png" width="50" height="50" alt="logo"/>
                         </span>
             <span class="text-lg text-gray-700 dark:text-white">
                             <p class="mb-0 font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]"
@@ -77,12 +82,13 @@ export default {
           <ul class="text-gray-700 dark:text-gray-100 w-full flex lg:items-center gap-y-4 lg:gap-x-8 flex-col lg:flex-row">
             <AtomsNavLink v-for="navItem in navLinks" :href="navItem.href" :text="navItem.text"/>
             <AtomsLinkBtn v-if="deferredPrompt" variant="primary" class="cursor-pointer" @click="install">
-                Установить
+              {{ $t("Установить") }}
             </AtomsLinkBtn>
           </ul>
         </div>
 
         <div class="flex items-center bg-inherit gap-1 lg:gap-3 min-w-max">
+          <ElementsLangSwitsher/>
           <ElementsThemeSwitcher/>
           <NuxtLink target="_blank" to="https://t.me/onson_mail_bot" class="transition hover:!text-primary">
             <img src="/Telegram.svg" height="25" width="25"/>

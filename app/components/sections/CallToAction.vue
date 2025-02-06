@@ -17,16 +17,21 @@
                     </span>
                 </div>
                 <div class="mx-auto text-center max-w-xl md:max-w-2xl relative">
-                    <h2 class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
-                        Отслеживайте свою  
+
+                    <h2 v-if="useI18n().locale.value === 'uz'" class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                       <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Yukingizni</span>
+                        kuzatib boring
+                    </h2>
+                    <h2 v-else class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                        Отслеживайте свою
                         <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">посылку</span>
                     </h2>
                     <p class="text-gray-600 dark:text-gray-300 pt-8 mx-auto max-w-xl">
-                        Отслеживайте статус и местоположение вашей посылки в режиме реального времени. Введите номер отслеживания и получите актуальную информацию о перемещении вашего заказа. Быстро, удобно и надежно!
+                        {{$t('track_desc')}}
                     </p>
                     <div class="mx-auto max-w-md sm:max-w-xl pt-10">
                         <div class="flex items-center relative gap-x-2">
-                            <input v-model="number" type="text" placeholder="Введите номер отслеживания" @keydown.enter="fetch_order"
+                            <input v-model="number" type="text" :placeholder="$t('Введите номер отслеживания')" @keydown.enter="fetch_order"
                                 class="outline-none border-2 border-transparent focus:border-primary bg-body text-gray-600 dark:text-gray-200 rounded-3xl px-6 py-3 w-full">
                             <div
                                 class="sm:inline-flex sm:min-w-max absolute sm:relative top-0.5 right-0.5 sm:top-0 sm:right-0">
@@ -34,7 +39,7 @@
                                     <span
                                         class="absolute inset-0 rounded-full group-hover:scale-105 origin-center transition-all ease-in-out bg-primary"></span>
                                     <span aria-hidden="true" class="relative hidden sm:flex">
-                                        Отслеживать
+                                        {{ $t('Отслеживать') }}
                                     </span>
                                     <span class="relative flex sm:hidden">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -82,7 +87,7 @@
                         </div>
                     </div>
                     <div class="mx-auto max-w-md sm:max-w-xl mt-10" v-if="error">
-                        <p class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Заказ не найден. Пожалуйста, проверьте введённые номер отслеживание или попробуйте позже</p>
+                        <p class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">{{$t('order_not_found')}}</p>
                     </div>
                 </div>
             </div>
@@ -91,13 +96,14 @@
 </template>
 <script>
 import axios from 'axios';
+
 export default {
     name: 'Action',
     data() {
         return {
             number: null,
             order: null,
-            error: false
+            error: false,
         }
     },
     methods: {

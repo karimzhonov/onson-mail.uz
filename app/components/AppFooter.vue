@@ -3,9 +3,9 @@
         <AtomsContainer class-name="pb-5">
             <div class="flex justify-between">
                 <div class="col-span-2 md:col-span-4 lg:col-span-2">
-                    <NuxtLink to="/" class=" flex items-center gap-2">
+                    <NuxtLink :to="localPath('/')" class=" flex items-center gap-2">
                         <span class="flex">
-                            <img src="/logo.png" width="50" height="50" />
+                            <img src="/logo.png" width="50" height="50" alt="logo"/>
                         </span>
                         <span class="text-lg text-gray-700 dark:text-white">
                             <p class="mb-0 font-bold" style="line-height: 16px;">ONSON</p>
@@ -33,57 +33,5 @@
 </template>
 
 <script lang="ts" setup>
-const quickLinks = [
-    {
-        href: "#",
-        text: "About us"
-    },
-    {
-        href: "#",
-        text: "News"
-    },
-    {
-        href: "#",
-        text: "Team"
-    },
-    {
-        href: "#",
-        text: "Solution"
-    }
-]
-const ressourcesLinks = [
-    {
-        href: "#",
-        text: "Developpers"
-    },
-    {
-        href: "#",
-        text: "Integration"
-    },
-    {
-        href: "#",
-        text: "Pricing"
-    }
-]
-
-const supportLinks = [
-    {
-        href: "#",
-        text: "Contact-us"
-    },
-    {
-        href: "#",
-        text: "Licence"
-    },
-    {
-        href: "#",
-        text: "Terms"
-    },
-    {
-        href: "#",
-        text: "FAQ"
-    }
-]
-
-
+const localPath = useLocalePath()
 </script>

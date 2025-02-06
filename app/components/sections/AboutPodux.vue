@@ -17,25 +17,28 @@
                         </span>
                     </div>
                     <div class="relative">
-                        <AtomsTitle texte="Мы продолжаем расти и достигать новых высот вместе с нашими клиентами! 🚀" />
+                        <AtomsTitle :texte="$t('Мы продолжаем расти и достигать новых высот вместе с нашими клиентами! 🚀')" />
                         
                         <div class="grid grid-cols-3 gap-4 max-w-lg pt-8">
                             <div
                                 class="text-center rounded-xl bg-box-bg shadow-lg shadow-box-shadow border border-box-border p-3">
                                 <h3 class="text-gray-800 dark:text-white font-bold text-xl sm:text-2xl lg:text-3xl">10 000+
                                 </h3>
-                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">тонн успешно доставленного груза за месяц</p>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">
+                                  {{ $t('тонн успешно доставленного груза за месяц') }}</p>
                             </div>
                             <div
                                 class="text-center rounded-xl bg-box-bg shadow-lg shadow-box-shadow border border-box-border p-3">
                                 <h3 class="text-gray-800 dark:text-white font-bold text-xl sm:text-2xl lg:text-3xl">1 000+</h3>
-                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">организованных туров</p>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">
+                                  {{ $t('организованных туров') }}</p>
                             </div>
                             <div
                                 class="text-center rounded-xl bg-box-bg shadow-lg shadow-box-shadow border border-box-border p-3">
                                 <h3 class="text-gray-800 dark:text-white font-bold text-xl sm:text-2xl lg:text-3xl">100+
                                 </h3>
-                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">успешных бизнес-стратегий внедрено</p>
+                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">
+                                  {{ $t('успешных бизнес - стратегий внедрено') }}</p>
                             </div>
                         </div>
                         

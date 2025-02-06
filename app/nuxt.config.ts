@@ -8,7 +8,21 @@ export default defineNuxtConfig({
         "@vite-pwa/nuxt",
         '@nuxtjs/color-mode',
         '@nuxt/image',
+        '@nuxtjs/i18n',
     ],
+
+    i18n: {
+        strictMessage: true,
+        escapeHtml: true,
+        lazy: true,
+        langDir: 'locales',
+        strategy: "prefix_except_default",
+        locales: [
+            {code: 'ru', language: 'ru', name: 'Русский', file: 'ru.json', cache: false },
+            {code: 'uz', language: 'uz', name: "O'zbek", file: 'uz.json', cache: false}
+        ],
+        defaultLocale: 'ru',
+    },
 
     css: [
         '~/assets/css/app.css'
