@@ -35,7 +35,7 @@
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod :title="$t('Туризм')" duration="1h:22min" href="#" :desc="$t('Индивидуальные и корпоративные туры')"
+                        <CardsRecentPod :title="$t('Туризм')" duration="1h:22min" href="https://onsontour.uz" :desc="$t('Индивидуальные и корпоративные туры')"
                             cover-image="/images/turizm.webp" />
                     </div>
 
@@ -47,7 +47,7 @@
 
                     <div
                         class=" w-11/12 min-w-[91.666667%] xs:w-80 xs:min-w-[20rem] md:w-1/3 md:min-w-[33.333333%] lg:w-1/4 lg:min-w-[25%]">
-                        <CardsRecentPod :title="$t('Таможенное оформление')" duration="50min" href="#" :desc="$t('Быстрое и эффективное таможенное оформление')"
+                        <CardsRecentPod :title="$t('Таможенное оформление')" duration="50min" :href="localPath('/customs')" :desc="$t('Быстрое и эффективное таможенное оформление')"
                             cover-image="/images/custom.webp" />
                     </div>
                 </div>
@@ -58,6 +58,7 @@
 
 <script lang="ts" setup>
 
+const localPath = useLocalePath()
 
 // const scrollLeft = useState('scrollLeft', ()=> 0)
 const nextIsVisible = useState('nextIsVisible', () => false)
