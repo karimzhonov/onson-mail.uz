@@ -91,6 +91,11 @@ const items = ref([
         icon: '/phone.webp',
         name: 'Телефон',
         link: ''
+      },
+      {
+        icon: '/safari.svg',
+        name: 'Сайт',
+        link: '/customs'
       }
     ]
   },
