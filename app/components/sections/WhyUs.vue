@@ -16,7 +16,7 @@
                         </p>
                         <div class="space-y-4 pt-8">
                             <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">🚛 {{ $t('Грузоперевозки') }}</h3>
+                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">🚛 {{ $t('Карго') }}</h3>
                                 <p class="text-base text-gray-600 dark:text-gray-300">
                                     {{$t('cargo_desc')}}
                                 </p>
