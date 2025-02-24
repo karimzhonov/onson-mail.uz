@@ -20,7 +20,7 @@
     </AtomsContainer>
 
     <div id="crypto-modal" tabindex="-1" aria-hidden="true" style="opacity: 90%" :class="{hidden: !modal}"
-         class="z-50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 justify-center items-center w-full md:inset-0 h-full dark:bg-body">
+         class="z-50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 justify-center items-center w-full md:inset-0 h-full bg-body dark:bg-body">
     </div>
     <div v-if="modal" id="crypto-modal" tabindex="-1" aria-hidden="true" :class="{hidden: !modal}"
          class="z-50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -80,22 +80,22 @@ const items = ref([
       {
         icon: '/Telegram.svg',
         name: 'Telegram',
-        link: ''
+        link: 'https://t.me/onsonmailtour'
       },
       {
         icon: '/Instagram.svg',
         name: 'Instagram',
-        link: ''
+        link: 'https://www.instagram.com/onsonmailtour/'
       },
       {
         icon: '/phone.webp',
         name: 'Телефон',
-        link: ''
+        link: '+998773713999'
       },
       {
         icon: '/safari.svg',
         name: 'Сайт',
-        link: '/customs'
+        link: 'https://onsontour.uz/'
       }
     ]
   },
@@ -107,61 +107,66 @@ const items = ref([
       {
         icon: '/Telegram.svg',
         name: 'Telegram',
-        link: ''
+        link: 'https://t.me/onsonmail_info'
       },
       {
         icon: '/Instagram.svg',
         name: 'Instagram',
-        link: ''
+        link: 'https://www.instagram.com/onson.mail/'
       },
       {
         icon: '/phone.webp',
         name: 'Телефон',
-        link: ''
+        link: '+998555111999'
       }
     ]
   },
   {
     title: 'Таможенное оформление',
-    desc: 'Быстрое и эффективное таможенное оформление',
+    desc: 'Быстрое и эффективное',
     image: '/images/custom.webp',
     links: [
       {
         icon: '/Telegram.svg',
         name: 'Telegram',
-        link: ''
+        link: 'https://t.me/onsonmailuz'
       },
       {
         icon: '/Instagram.svg',
         name: 'Instagram',
-        link: ''
+        link: 'https://www.instagram.com/onson.mail/'
       },
       {
         icon: '/phone.webp',
         name: 'Телефон',
-        link: ''
+        link: '+998555111999'
+      },
+      {
+        icon: '/safari.svg',
+        name: 'Сайт',
+        link: '/customs'
       }
     ]
   },
   {
     title: 'Консалтинг',
-    desc: 'Профессиональные услуги консалтинга',
+    desc: 'Профессиональные услуги',
     image: '/images/consalting.jpg',
     links: [
       {
         icon: '/Telegram.svg',
         name: 'Telegram',
-        link: ''
+        link: 'https://t.me/onsonmailuz'
       },
       {
         icon: '/Instagram.svg',
         name: 'Instagram',
-        link: ''
+        link: 'https://www.instagram.com/onson.mail/'
       },
       {
         icon: '/phone.webp',
         name: 'Телефон',
-        link: ''
+        link: '+998555111999'
       }
     ]
   }
