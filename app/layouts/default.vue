@@ -4,6 +4,7 @@
 
 <template>
   <div>
+    <BannerCalendar />
     <AppHeader/>
     <slot/>
     <AppFooter/>
