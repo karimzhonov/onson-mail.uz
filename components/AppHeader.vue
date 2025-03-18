@@ -81,9 +81,9 @@ export default {
             :class="navIsOpen?'!visible !opacity-100 !translate-y-0':''">
           <ul class="text-gray-700 dark:text-gray-100 w-full flex lg:items-center gap-y-4 lg:gap-x-8 flex-col lg:flex-row">
             <AtomsNavLink v-for="navItem in navLinks" :href="navItem.href" :text="navItem.text"/>
-            <AtomsLinkBtn v-if="deferredPrompt" variant="primary" class="cursor-pointer" @click="install">
+            <!-- <AtomsLinkBtn v-if="deferredPrompt" variant="primary" class="cursor-pointer" @click="install">
               {{ $t("Установить") }}
-            </AtomsLinkBtn>
+            </AtomsLinkBtn> -->
           </ul>
         </div>
 
