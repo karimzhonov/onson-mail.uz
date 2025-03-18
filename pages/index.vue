@@ -12,8 +12,9 @@ useHead({
 <template>
     <div>
         <SectionsHomeHeroSection/>
+        <SectionsCountDown />
         <SectionsHomeLatestPodcast/>
-        <!-- <SectionsHomePopularPodcasts/> -->
+        <SectionsCostCalculator />
         <SectionsAboutPodux/>
         <SectionsCallToAction/>
         <SectionsWhyUs/>

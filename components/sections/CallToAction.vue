@@ -115,10 +115,10 @@
                         <div class="text-gray-600 dark:text-gray-300 md:w-[350px] mb-3">
                             <div class="flex flex-row m-3 py-3" v-for="step in steps" :class="{'opacity-60': order.status !== step.step}">
                                 <div class="flex flex-col items-center">
-                                    <div class="w-12 h-12 rounded-[50%] bg-gray-200 text-white flex justify-center items-center" :class="{'!bg-green-500': order.status === step.step, 'text-green-500': order.status !== step.step}">
-                                        <component class="w-6 h-6" :is="step.icon"/>
+                                    <div class="w-12 h-12 rounded-[50%] bg-gray-200 text-white flex justify-center items-center" :class="{'!bg-green-500': order.status === step.step}">
+                                        <component class="w-6 h-6" :is="step.icon" :class="{'!text-green-500': order.status !== step.step}"/>
                                     </div>
-                                    <p class="w-[100px] text-sm"><i class="text-wrap">{{ order[step.step] }}</i></p>
+                                    <p class="w-[100px] text-sm mt-1"><i class="text-wrap">{{ order[step.step] }}</i></p>
                                 </div>
                                 
                                 <div class="flex flex-col justify-center w-full">

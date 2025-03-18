@@ -65,5 +65,9 @@
   "Наименование товара": "Mahsulot nomi",
   "Цена за ед.": "Dona narxi",
   "Кол-во": "Miqdor",
-  "Общая стоимость": "Umumiy narxi"
+  "Общая стоимость": "Umumiy narxi",
+  "день": "kun",
+  "час": "soat",
+  "минут": "minut",
+  "секунд": "sekund"
 }
