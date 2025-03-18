@@ -8,17 +8,17 @@ export default {
 
     }
   },
-  created() {
-    window.addEventListener("beforeinstallprompt", e => {
-      e.preventDefault();
-      // Stash the event so it can be triggered later.
-      console.log(e)
-      this.deferredPrompt = e;
-    });
-    window.addEventListener("appinstalled", () => {
-      this.deferredPrompt = null;
-    });
-  },
+  // created() {
+  //   window.addEventListener("beforeinstallprompt", e => {
+  //     e.preventDefault();
+  //     // Stash the event so it can be triggered later.
+  //     console.log(e)
+  //     this.deferredPrompt = e;
+  //   });
+  //   window.addEventListener("appinstalled", () => {
+  //     this.deferredPrompt = null;
+  //   });
+  // },
   methods: {
     localPath: useLocalePath(),
     toggleNav(event) {
