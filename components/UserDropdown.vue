@@ -6,7 +6,7 @@
     </button>
     <Popover ref="user">
         <div class="flex flex-row">          
-            <Menu :model="items" class="border-0">
+            <Menu :model="items" class="!border-0">
                 <template #start>
                     <button v-if="user.id" @click="() => $router.push(useLocalePath()('/profile'))" v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                         <Avatar :label="user.first_name[0]" class="mr-2 cursor-pointer" shape="circle" @click="toggle" />

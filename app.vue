@@ -20,7 +20,7 @@
     </NuxtLayout>
   </div>
   <MobileNavBar />
-  <div v-if="loader().loading" class="absolute top-0 left-0 w-full h-full bg-white z-[9999]">
+  <div v-if="loader().loading" class="absolute top-0 left-0 w-full h-full bg-white z-[998]">
     <Loader />
   </div>
 </template>
