@@ -28,16 +28,29 @@
                 </h2>
                 <div
                     class="flex gap-4 flex-col md:flex-row mt-5 items-center justify-center md:justify-around w-full max-w-[500px]">
-                    <SelectButton v-model="country" :options="countries" option-label="name">
+                    <Select v-model="country" :options="countries" option-label="name">
                         <template #option="{option}">
-                            <img :src="`https://cdn.jsdelivr.net/gh/lipis/flag-icon-css@master/flags/4x3/${option.code.toLowerCase()}.svg`"
-                                        :alt="option.code" class="size-8 shrink-0">
-                                    <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-                                    <span class="ml-3 block truncate font-normal text-lg">{{option.name}}</span>
+                            <div class="flex flex-row">
+                                <img :src="`https://cdn.jsdelivr.net/gh/lipis/flag-icon-css@master/flags/4x3/${option.code.toLowerCase()}.svg`"
+                                    :alt="option.code" class="size-8 shrink-0">
+                                <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                                <span class="ml-3 block truncate font-normal text-lg">{{option.name}}</span>
+                            </div>
                         </template>
-                    </SelectButton>
+                        <template #value="{ value }">
+                            <div class="flex flex-row">
+                                <img :src="`https://cdn.jsdelivr.net/gh/lipis/flag-icon-css@master/flags/4x3/${value.code.toLowerCase()}.svg`"
+                                    :alt="value.code" class="size-8 shrink-0">
+                                <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
+                                <span class="ml-3 block truncate font-normal text-lg">{{value.name}}</span>
+                            </div>
+                        </template>
+                    </Select>
                     <div class="text-2xl text-gray-800 ">X</div>
-                    <InputNumber class="w-[100px]" v-model="weight" inputId="weight" suffix=" кг" fluid />
+                    <InputGroup class="w-[150px]">
+                        <InputNumber v-model="weight" placeholder="0" />
+                        <InputGroupAddon>{{$t('кг')}}</InputGroupAddon>
+                    </InputGroup>
                     <div class="text-4xl text-gray-800 ">=</div>
                     <div class="text-4xl">{{ weight > 1 ? country.price_per * weight : country.price_per }}$</div>
                 </div>

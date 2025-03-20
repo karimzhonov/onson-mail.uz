@@ -1,7 +1,7 @@
 <template>
     <div>
       <SidebarContent>
-        <Menu :model="cargo" class="p-0 !bg-transparent border-0">
+        <Menu :model="cargo" class="p-0 !bg-transparent !border-0">
           <template #start>
             <span class="text-primary text-lg font-bold">{{ $t('Карго') }}</span>
           </template>
@@ -15,7 +15,7 @@
       </SidebarContent>
 
       <SidebarContent class="mt-4">
-        <Menu :model="turism" class="p-0 !bg-transparent border-0">
+        <Menu :model="turism" class="p-0 !bg-transparent !border-0">
           <template #start>
             <span class="text-primary text-lg font-bold">{{ $t('Туризм') }}</span>
           </template>
@@ -30,7 +30,7 @@
       </SidebarContent>
 
       <SidebarContent class="mt-4">
-        <Menu :model="consulting" class="p-0 !bg-transparent border-0">
+        <Menu :model="consulting" class="p-0 !bg-transparent !border-0">
           <template #start>
             <span class="text-primary text-lg font-bold">{{ $t('Консалтинг') }}</span>
           </template>
@@ -45,7 +45,7 @@
       </SidebarContent>
 
       <SidebarContent class="mt-4">
-        <Menu :model="customs" class="p-0 !bg-transparent border-0">
+        <Menu :model="customs" class="p-0 !bg-transparent !border-0">
           <template #start>
             <span class="text-primary text-lg font-bold">{{ $t('Таможенное оформление') }}</span>
           </template>
