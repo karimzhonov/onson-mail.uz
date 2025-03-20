@@ -14,7 +14,7 @@
     </div> -->
   </div>
   <Toast />
-  <div class="pb-[85px] md:pb-0 h-full">
+  <div class="pb-[85px] md:pb-0 h-full min-h-screen">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

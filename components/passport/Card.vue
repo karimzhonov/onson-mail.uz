@@ -2,12 +2,8 @@
     <div class="aspect-[3/2] cursor-pointer rounded-xl bg-[url(/images/passport.png)] bg-cover p-[10px] pt-[50px]">
         <div class="flex flex-row">
             <div class="col-span-3 h-full w-[30%] ml-2">
-                <Avatar shape="square" class="!w-full h-[80%]">
-                    <AvatarImage :src="data.image" alt="@unovue" />
-                    <AvatarFallback class="w-full h-full" style="background-color: transparent;">
-                        <img src="/images/default_user.png" />
-                    </AvatarFallback>
-                </Avatar>
+                <img class="w-full" v-if="data.image" :src="data.image" />
+                <img class="w-full" v-else src="/images/default_user.png" />
             </div>  
             <div class="col-span-5 flex flex-col text-black h-full ml-3">
                 <div class="text-xs mb-2">

@@ -8,7 +8,7 @@
             </div>
         </div>
     </Loading>
-    <IDialog v-model="open">
+    <IDialog v-model="open" @update:open="fetch_data">
         <template #header>
             {{ selected.id ? selected.fio : $t('Добавить паспорт') }}
         </template>
