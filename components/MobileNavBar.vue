@@ -25,7 +25,7 @@
             <Menu />
             <p>{{ $t('Профиль') }}</p>
         </a>
-        <Drawer position="right" v-model:visible="profile_open">
+        <Drawer position="right" v-model:visible="profile_open" class="!w-[350px]">
             <template #header>
                 <button v-if="user.id" v-ripple
                     class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
@@ -37,7 +37,7 @@
                 </button>
                 <h2 v-else class="font-bold text-lg">{{ $t('Пользователь') }}</h2>
             </template>
-            <AppSidebar class="w-full" />
+            <AppSidebar />
             <Button v-if="useUser().user?.id" class="w-full mt-2" severity="danger" @click="useUser().logout">
                 {{ $t('Выйти') }}
             </Button>
