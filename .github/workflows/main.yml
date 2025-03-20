@@ -3,6 +3,9 @@ on: push
 jobs:
   build:
     runs-on: self-hosted
+    env:
+      NUXT_APP_BACKEND_HOST: ${{ secrets.NUXT_APP_BACKEND_HOST }}
+      VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
     container: 
       image: node:lts-alpine
     steps:
