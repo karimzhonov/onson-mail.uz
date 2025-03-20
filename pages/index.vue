@@ -19,7 +19,7 @@ definePageMeta({
         <LandingServices />
         <LandingCostCalculator />
         <LandingAbout />
-        <OrderPublic class="mt-2"/>
+        <OrderPublic class="mt-20"/>
         <LandingResults />
     </div>
 </template>

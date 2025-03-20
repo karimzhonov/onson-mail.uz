@@ -3,7 +3,7 @@
             <div class="grid md:grid-cols-2 gap-10 xl:gap-14 relative">
                 <div class="flex md:h-full ">
                     <div
-                        class="animate-fade-right w-full md:h-full rounded-3xl bg-white dark:bg-body shadow-lg shadow-box-shadow border border-box-border">
+                        class="animate-fade-right w-full md:h-full rounded-3xl bg-white  shadow-lg shadow-box-shadow border border-box-border">
                         <img src="/images/about.jpg" alt="Illustratuin about" width="500"
                             class="w-full h-full object-cover rounded-2xl">
                     </div>
@@ -20,22 +20,22 @@
                         <div class="grid grid-cols-3 gap-4 max-w-lg pt-8">
                             <div
                                 class="text-center rounded-xl bg-box-bg shadow-lg shadow-box-shadow border border-box-border p-3">
-                                <h3 class="text-gray-800 dark:text-white font-bold text-xl sm:text-2xl lg:text-3xl">10 000+
+                                <h3 class="text-gray-800  font-bold text-xl sm:text-2xl lg:text-3xl">10 000+
                                 </h3>
-                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">
+                                <p class="text-sm sm:text-base text-gray-600 " lang="ru" style="word-wrap: break-word;hyphens: auto;">
                                   {{ $t('тонн успешно доставленного груза за месяц') }}</p>
                             </div>
                             <div
                                 class="text-center rounded-xl bg-box-bg shadow-lg shadow-box-shadow border border-box-border p-3">
-                                <h3 class="text-gray-800 dark:text-white font-bold text-xl sm:text-2xl lg:text-3xl">1 000+</h3>
-                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">
+                                <h3 class="text-gray-800  font-bold text-xl sm:text-2xl lg:text-3xl">1 000+</h3>
+                                <p class="text-sm sm:text-base text-gray-600 " lang="ru" style="word-wrap: break-word;hyphens: auto;">
                                   {{ $t('организованных туров') }}</p>
                             </div>
                             <div
                                 class="text-center rounded-xl bg-box-bg shadow-lg shadow-box-shadow border border-box-border p-3">
-                                <h3 class="text-gray-800 dark:text-white font-bold text-xl sm:text-2xl lg:text-3xl">100+
+                                <h3 class="text-gray-800  font-bold text-xl sm:text-2xl lg:text-3xl">100+
                                 </h3>
-                                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300" lang="ru" style="word-wrap: break-word;hyphens: auto;">
+                                <p class="text-sm sm:text-base text-gray-600 " lang="ru" style="word-wrap: break-word;hyphens: auto;">
                                   {{ $t('успешных бизнес - стратегий внедрено') }}</p>
                             </div>
                         </div>

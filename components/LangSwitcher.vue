@@ -10,7 +10,7 @@ function change(event: MouseEvent) {
 <template>
     <div class="relative py-2">
         <button
-            class="outline-none bg-transparent p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+            class="outline-none bg-transparent p-2.5 rounded-full text-gray-600 hover:bg-gray-100"
             @click="(event) => {
                 change(event)
             }">
@@ -25,9 +25,9 @@ function change(event: MouseEvent) {
             leave-active-class="transition ease-in duration-200" leave-from-class="transform opacity-100 translate-y-0"
             leave-to-class="transform opacity-0 translate-y-6">
             <div v-show="isOpen"
-                class="absolute border border-box-border shadow-md shadow-box-shadow z-40 top-full right-0 transition-all ease-linear p-2 rounded-xl bg-box-bg">
+                class="absolute border border-box-border shadow-md shadow-box-shadow z-40 top-full right-0 transition-all ease-linear p-2 rounded-xl bg-white">
                 <ul class="flex flex-col" @click="isOpen = false">
-                    <li v-for="item in locales" class="flex select-none cursor-pointer items-center gap-3 px-2 py-2 rounded-md transition hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-200"
+                    <li v-for="item in locales" class="flex select-none cursor-pointer items-center gap-3 px-2 py-2 rounded-md transition hover:bg-gray-100 text-gray-600"
                         @click="setLocale(item.code)">
                         <span>
                             {{ item.name }}

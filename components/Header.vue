@@ -9,9 +9,6 @@ export default {
     computed: {
         user: () => useUser().user
     },
-    methods: {
-        localPath: useLocalePath(),
-    },
 }
 
 </script>

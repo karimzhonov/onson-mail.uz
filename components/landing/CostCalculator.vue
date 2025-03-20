@@ -1,7 +1,7 @@
 <template>
     <section class="pt-20" id="tracker">
         <div
-            class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-body-color">
+            class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 ">
             <div class="absolute right-0 top-0 h-full w-full flex justify-end">
                 <span class="flex opacity-20">
                     <span class="w-16 h-32 rounded-l-full flex bg-primary blur-2xl"></span>
@@ -18,11 +18,11 @@
             <div
                 class="flex flex-col items-center font-bold relative text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">
                 <h2 v-if="useI18n().locale.value === 'ru'"
-                    class="text-center text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                    class="text-center text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
                     Расчитать стоимость
                     <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">перевозки</span>
                 </h2>
-                <h2 v-else class="text-center text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                <h2 v-else class="text-center text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
                     <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Yuk</span>
                     tashish narxini hisoblang
                 </h2>
@@ -36,9 +36,9 @@
                                     <span class="ml-3 block truncate font-normal text-lg">{{option.name}}</span>
                         </template>
                     </SelectButton>
-                    <div class="text-2xl text-gray-800 dark:text-white">X</div>
+                    <div class="text-2xl text-gray-800 ">X</div>
                     <InputNumber class="w-[100px]" v-model="weight" inputId="weight" suffix=" кг" fluid />
-                    <div class="text-4xl text-gray-800 dark:text-white">=</div>
+                    <div class="text-4xl text-gray-800 ">=</div>
                     <div class="text-4xl">{{ weight > 1 ? country.price_per * weight : country.price_per }}$</div>
                 </div>
             </div>

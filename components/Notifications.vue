@@ -102,7 +102,7 @@ export default {
 </script>
 
 <template>
-    <button id="notifications" @click="() => { open = true; loadSw() }" class="outline-none bg-transparent p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+    <button id="notifications" @click="() => { open = true; loadSw() }" class="outline-none bg-transparent p-2.5 rounded-full text-gray-600  hover:bg-gray-100">
         <Bell />
         <div v-if="items.unread"
             class="w-[15px] h-[15px] rounded-[50%] bg-red-500 text-xs text-white text-center absolute top-[2px] left-[12px]">

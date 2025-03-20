@@ -34,7 +34,7 @@ export default {
 
 <template>
     <button v-if="!installed"
-        class="outline-none bg-transparent p-2.5 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+        class="outline-none bg-transparent p-2.5 rounded-full text-gray-600 hover:bg-gray-100"
         @click="install">
         <CloudDownload class="size-6 text-gray-700 cursor-pointer" />
     </button>

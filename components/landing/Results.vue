@@ -10,25 +10,25 @@
                     </div>
                     <div class="relative">
                         <h2 class="text-4xl font-bold">{{ $t('Наши достижения') }}</h2>
-                        <p class="text-gray-600 dark:text-gray-300 pt-8">
+                        <p class="text-gray-600  pt-8">
                             {{$t('records_desc')}}
                         </p>
                         <div class="space-y-4 pt-8">
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">🚛 {{ $t('Карго') }}</h3>
-                                <p class="text-base text-gray-600 dark:text-gray-300">
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">🚛 {{ $t('Карго') }}</h3>
+                                <p class="text-base text-gray-600 ">
                                     {{$t('cargo_desc')}}
                                 </p>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">🌍 {{ $t('Туризм') }}</h3>
-                                <p class="text-base text-gray-600 dark:text-gray-300">
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">🌍 {{ $t('Туризм') }}</h3>
+                                <p class="text-base text-gray-600 ">
                                     {{$t('tourism_desc')}}
                                 </p>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">📊 {{$t('Консалтинг')}}</h3>
-                                <p class="text-base text-gray-600 dark:text-gray-300">
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">📊 {{$t('Консалтинг')}}</h3>
+                                <p class="text-base text-gray-600 ">
                                     {{$t('consulting_desc')}}
                                 </p>
                             </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="flex md:h-full relative order-1 md:order-2">
                     <div
-                            class="absolute z-0 top-1/2  -translate-y-1/2 w-5/6 right-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-primary to-pink-300 dark:from-[#570cac] dark:to-primary blur-2xl">
+                            class="absolute z-0 top-1/2  -translate-y-1/2 w-5/6 right-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-primary to-pink-300 ">
                         </div>
                     <div class="w-full h-[27rem] sm:h-[30rem] md:h-full flex justify-start md:justify-end relative pb-5">
                         <img src="/images/cargo2.png" alt="Podcast image" width="300" class="w-2/5 aspect-square absolute bottom-0 right-0 md:left-0 object-cover  rounded-t-[30%] rounded-b-[30%] border-4 border-box-border shadow-md shadow-box-shadow">

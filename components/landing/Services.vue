@@ -16,11 +16,11 @@
 
         <Dialog v-model:visible="modal" modal :header="$t(item.title ?? '')" :style="{ width: '25rem' }">
             <div>
-                <p class="text-sm font-normal text-gray-500 dark:text-gray-400">{{ item.desc }}</p>
+                <p class="text-sm font-normal text-gray-500 ">{{ item.desc }}</p>
                 <ul class="my-4 space-y-3">
                     <li v-for="link in item.links">
                         <a :href="link.link" target="_blank"
-                            class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                            class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow">
                             <img :src="link.icon" height="35" width="35" />
                             <span class="flex-1 ms-3 whitespace-nowrap">{{ $t(link.name) }}</span>
                         </a>

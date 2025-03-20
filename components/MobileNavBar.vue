@@ -28,9 +28,9 @@
         <Drawer position="right" v-model:visible="profile_open">
             <template #header>
                 <button v-if="user.id" v-ripple
-                    class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 dark:hover:bg-surface-800 rounded-none cursor-pointer transition-colors duration-200">
+                    class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                     <Avatar v-if="user.first_name" :label="user.first_name[0]" class="mr-2 cursor-pointer" shape="circle"
-                        @click="toggle" />
+                        @click="toggle" size="large" />
                     <span class="inline-flex flex-col items-start">
                         <span class="font-bold">{{ user.first_name }} {{ user.last_name }}</span>
                     </span>
