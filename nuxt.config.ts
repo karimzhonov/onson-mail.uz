@@ -2,13 +2,23 @@
 import Preset from "./theme";
 
 export default defineNuxtConfig({
-  modules: ["@primevue/nuxt-module", "@nuxtjs/tailwindcss", "@nuxtjs/i18n", '@nuxtjs/leaflet'],
+  modules: [
+    "@primevue/nuxt-module",
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
+    '@nuxtjs/leaflet',
+    '@nuxtjs/color-mode',
+  ],
   ssr: true,
   runtimeConfig: {
     public: {
       NUXT_APP_BACKEND_HOST: process.env.NUXT_APP_BACKEND_HOST,
       VAPID_PUBLIC_KEY: process.env.VAPID_PUBLIC_KEY,
     }
+  },  
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
   },
 
   primevue: {

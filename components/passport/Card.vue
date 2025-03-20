@@ -1,8 +1,8 @@
 <template>
-    <div class="aspect-[3/2] h-full cursor-pointer rounded-xl bg-[url(/images/passport.png)] bg-cover p-[10px] pt-[50px]">
+    <div class="aspect-[3/2] cursor-pointer rounded-xl bg-[url(/images/passport.png)] bg-cover p-[10px] pt-[50px]">
         <div class="flex flex-row">
             <div class="col-span-3 h-full w-[30%] ml-2">
-                <Avatar shape="square" class="w-full h-[80%]">
+                <Avatar shape="square" class="!w-full h-[80%]">
                     <AvatarImage :src="data.image" alt="@unovue" />
                     <AvatarFallback class="w-full h-full" style="background-color: transparent;">
                         <img src="/images/default_user.png" />

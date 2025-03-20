@@ -1,22 +1,17 @@
 <template>
   <div class="fixed inset-x-0 h-screen flex items-start pointer-events-none">
-    <div class="absolute top-0 h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
+    <div class="absolute top-0 h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl">
     </div>
-    <div class="absolute top-0 right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
+    <div class="absolute top-0 right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl">
     </div>
-    <div class="absolute bottom-0 h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
+    <div class="absolute bottom-0 h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl">
     </div>
-    <div class="absolute bottom-0 right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
+    <div class="absolute bottom-0 right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl">
     </div>
-    <!-- <div class="absolute bottom-[70%] right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
+    <!-- <div class="absolute bottom-[70%] right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl">
     </div>
-    <div class="absolute bottom-[40%] h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
+    <div class="absolute bottom-[40%] h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl">
     </div> -->
-  </div>
-  <div class="absolute inset-y-0 w-44 left-0 hidden dark:flex">
-    <div
-      class="h-full md:h-1/2 lg:h-full w-full bg-gradient-to-tr opacity-40 dark:blur-2xl dark:from-[#570cac] dark:opacity-20">
-    </div>
   </div>
   <Toast />
   <div class="pb-[85px] md:pb-0 h-full">
@@ -33,6 +28,9 @@
 <script setup>
 import { token } from './composables'
 import loader from "~/store/loader";
+
+const colorMode = useColorMode();
+colorMode.preference = 'light';
 
 useHead({
   title: 'Onson Mail',
@@ -55,3 +53,8 @@ onMounted(async () => {
   if (useRoute().query.refresh) token.value.refresh = useRoute().query.refresh
 })
 </script>
+<style>
+html {
+  color-scheme: light;
+}
+</style>

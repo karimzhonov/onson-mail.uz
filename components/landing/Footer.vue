@@ -1,11 +1,11 @@
 <template>
-    <footer class="flex justify-center bg-white border-t border-gray-200 dark:border-gray-100/20">
+    <footer class="flex justify-center bg-white border-t border-gray-200 ">
         <div class="p-2 w-full flex justify-between max-w-screen-lg lg:max-w-screen-xl">
             <div class="col-span-2 md:col-span-4 lg:col-span-2">
                 <Logo />
             </div>
 
-            <div class="flex items-center gap-x-3 text-gray-600 dark:text-gray-300">
+            <div class="flex items-center gap-x-3 text-gray-600 ">
                 <NuxtLink target="_blank" to="#" class="transition hover:!text-primary">
                     <img src="/icons/Telegram.svg" height="30" width="35" />
                 </NuxtLink>

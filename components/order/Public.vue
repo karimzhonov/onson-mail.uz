@@ -1,7 +1,7 @@
 <template>
     <section class="mt-2" id="tracker">
         <div
-                class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-body-color">
+                class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 ">
                 <div class="absolute right-0 top-0 h-full w-full flex justify-end">
                     <span class="flex opacity-20">
                         <span class="w-16 h-32 rounded-l-full flex bg-primary blur-2xl"></span>
@@ -17,21 +17,21 @@
                 </div>
                 <div class="mx-auto text-center relative">
 
-                    <h2 v-if="useI18n().locale.value === 'uz'" class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                    <h2 v-if="useI18n().locale.value === 'uz'" class="text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
                        <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">Yukingizni</span>
                         kuzatib boring
                     </h2>
-                    <h2 v-else class="text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                    <h2 v-else class="text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
                         Отслеживайте свою
                         <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">посылку</span>
                     </h2>
-                    <p class="text-gray-600 dark:text-gray-300 pt-8 mx-auto max-w-xl">
+                    <p class="text-gray-600  pt-8 mx-auto max-w-xl">
                         {{$t('track_desc')}}
                     </p>
                     <div class="mx-auto max-w-md sm:max-w-xl pt-5">
                         <div class="flex items-center relative gap-x-2">
                             <input v-model="number" type="text" :placeholder="$t('Введите номер отслеживания')" @keydown.enter="fetch_order"
-                                class="outline-none border-2 border-transparent focus:border-primary bg-body text-gray-600 dark:text-gray-200 rounded-3xl px-6 py-3 w-full">
+                                class="outline-none border-2 border-transparent focus:border-primary bg-body text-gray-600  rounded-3xl px-6 py-3 w-full">
                             <div
                                 class="sm:inline-flex sm:min-w-max absolute sm:relative top-0.5 right-0.5 sm:top-0 sm:right-0">
                                 <button class="min-w-max p-3 sm:py-3 sm:px-6 text-white border-2 border-transparent relative group" @click="fetch_order">
@@ -51,30 +51,30 @@
                     <div class="mx-auto max-w-md sm:max-w-4xl mt-3 flex justify-between md:flex-row flex-col-reverse" v-if="order">
                         <div>
                             <div class="flex mb-2">    
-                                <p class="text-gray-600 dark:text-gray-300 text-xl" style="text-wrap: nowrap">{{$t('Hомер отслеживания')}}: </p>
+                                <p class="text-gray-600  text-xl" style="text-wrap: nowrap">{{$t('Hомер отслеживания')}}: </p>
                                 <p class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a] ml-2 text-xl" style="text-wrap: nowrap">{{ order.number }}</p>
                             </div>
 
                             <div class="flex mb-2">    
-                                <p class="text-gray-600 dark:text-gray-300 text-xl flex" style="text-wrap: nowrap">{{$t('ФИО')}}:</p>
+                                <p class="text-gray-600  text-xl flex" style="text-wrap: nowrap">{{$t('ФИО')}}:</p>
                                 <p class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a] ml-2 text-xl" lang="ru" style="word-wrap: break-word;hyphens: auto;">{{ order.fio }} </p>
                             </div>
                             
                             <div class="flex mb-2">    
-                                <p class="text-gray-600 dark:text-gray-300 text-xl flex" style="text-wrap: nowrap">{{$t('Вес товара')}}:</p>
+                                <p class="text-gray-600  text-xl flex" style="text-wrap: nowrap">{{$t('Вес товара')}}:</p>
                                 <p class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a] ml-2 text-xl" lang="ru" style="word-wrap: break-word;hyphens: auto;">{{ order.weight }} {{ $t('кг') }} </p>
                             </div>
 
                             <div class="flex mb-2">    
-                                <p class="text-gray-600 dark:text-gray-300 text-xl flex" style="text-wrap: nowrap">{{$t('Оплата за доставку')}}:</p>
+                                <p class="text-gray-600  text-xl flex" style="text-wrap: nowrap">{{$t('Оплата за доставку')}}:</p>
                                 <p class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a] ml-2 text-xl" lang="ru" style="word-wrap: break-word;hyphens: auto;">{{ order.delivery_price }} $ </p>
                             </div>
 
                             <div class="flex flex-col mb-2" v-if="order.products.length > 0">    
-                                <p class="text-gray-600 dark:text-gray-300 text-xl flex" style="text-wrap: nowrap">{{$t('Товары')}}:</p>
+                                <p class="text-gray-600  text-xl flex" style="text-wrap: nowrap">{{$t('Товары')}}:</p>
                                 <div class="overflow-x-auto w-full">
-                                    <table class="mt-3 w-full text-sm text-left text-gray-600 dark:text-gray-300">
-                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <table class="mt-3 w-full text-sm text-left text-gray-600 ">
+                                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                                             <tr>
                                                 <th scope="col" class="px-6 py-3">
                                                     {{ $t('Наименование товара') }}
@@ -91,8 +91,8 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="pio in order.products" class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            <tr v-for="pio in order.products" class="odd:bg-white even:bg-gray-50 border-b border-gray-200">
+                                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
                                                     {{ pio.product.name }}
                                                 </th>
                                                 <td class="px-6 py-4">
@@ -110,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-gray-600 dark:text-gray-300 md:w-[350px] mb-3">
+                        <div class="text-gray-600  md:w-[350px] mb-3">
                             <div class="flex flex-row m-3 py-3" v-for="step in steps" :class="{'opacity-60': order.status !== step.step}">
                                 <div class="flex flex-col items-center">
                                     <div class="w-12 h-12 rounded-[50%] bg-gray-200 text-white flex justify-center items-center" :class="{'!bg-green-500': order.status === step.step}">

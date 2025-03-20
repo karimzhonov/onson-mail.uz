@@ -10,27 +10,27 @@
                     </div>
                     <div class="relative">
                         <AtomsTitle :texte="$t('Таможенное оформление «Под Ключ»')" />
-                        <p class="text-gray-600 dark:text-gray-300 pt-8">
+                        <p class="text-gray-600  pt-8">
                             {{$t('Компания Proexport Limited предоставляет Полный спектр услуг по таможенной очистке груза в Узбекистане.')}}
                         </p>
                         <div class="space-y-4 pt-8">
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Получение сопроводительных документов на станциях прибытия груза и таможенных постах.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Получение сопроводительных документов на станциях прибытия груза и таможенных постах.') }}</h3>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Декларирование товара.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Декларирование товара.') }}</h3>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Оформление заявок и разрешительных документов в советующих органах сертификации.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Оформление заявок и разрешительных документов в советующих органах сертификации.') }}</h3>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Определение таможенной стоимости.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Определение таможенной стоимости.') }}</h3>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Предварительный расчет таможенных платежей.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Предварительный расчет таможенных платежей.') }}</h3>
                             </div>
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Предварительная проверка и контроль сопроводительных документов на груз.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Предварительная проверка и контроль сопроводительных документов на груз.') }}</h3>
                             </div>
                             
                         </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="flex md:h-full relative order-1 md:order-2">
                     <div
-                            class="absolute z-0 top-1/2  -translate-y-1/2 w-5/6 right-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-primary to-pink-300 dark:from-[#570cac] dark:to-primary blur-2xl">
+                            class="absolute z-0 top-1/2  -translate-y-1/2 w-5/6 right-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-primary to-pink-300 ">
                         </div>
                     <div class="animate-fade-left w-full h-[27rem] sm:h-[30rem] md:h-full flex justify-center md:justify-end relative pb-5">
                         <img src="/images/customs2.jpg" alt="Illustratuin about" width="500"
@@ -58,28 +58,28 @@
                     <div class="relative">
                         <div class="space-y-4 pt-8">
                             
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Консультация по таможенному законодательству РУз.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Консультация по таможенному законодательству РУз.') }}</h3>
                             </div>
 
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Участие в таможенном досмотре груза.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Участие в таможенном досмотре груза.') }}</h3>
                             </div>
 
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Регистрация и ведение контракта в ЕЭИСВО.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Регистрация и ведение контракта в ЕЭИСВО.') }}</h3>
                             </div>
 
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Определение кода ТНВЭД') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Определение кода ТНВЭД') }}</h3>
                             </div>
 
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Помощь в получении заключения экспертизы по коду ТНВЭД') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Помощь в получении заключения экспертизы по коду ТНВЭД') }}</h3>
                             </div>
 
-                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 dark:hover:bg-box-bg">
-                                <h3 class="text-gray-700 dark:text-gray-200 font-semibold text-xl">{{ $t('Маркировка ASL Belgisi.') }}</h3>
+                            <div class="p-4 rounded-xl border border-box-border transition hover:bg-gray-200 ">
+                                <h3 class="text-gray-700  font-semibold text-xl">{{ $t('Маркировка ASL Belgisi.') }}</h3>
                             </div>
                             
                         </div>
@@ -87,7 +87,7 @@
                 </div>
                 <div class="flex md:h-full relative order-1 md:order-1">
                     <div
-                        class="absolute z-0 top-1/2  -translate-y-1/2 w-5/6 left-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-primary to-pink-300 dark:from-[#570cac] dark:to-primary blur-2xl">
+                        class="absolute z-0 top-1/2  -translate-y-1/2 w-5/6 left-0 h-[calc(80%+20px)] bg-gradient-to-tr opacity-25 from-primary to-pink-300 ">
                     </div>
                     <div class="animate-fade-right animate-delay-500 w-full h-[27rem] sm:h-[30rem] md:h-full flex justify-center relative pb-5">
                         <img src="/images/customs.jpg" alt="Illustratuin about" width="500"

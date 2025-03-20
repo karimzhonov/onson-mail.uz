@@ -29,7 +29,7 @@
                         <button class="bg-transparent border-0 inline-flex flex-col justify-center items-center gap-2">
                             <span :class="[
                                 'rounded-full border-2 w-12 h-12 inline-flex items-center justify-center',
-                                { 'bg-primary text-primary-contrast border-primary': step.step === data.status, 'border-surface-200 dark:border-surface-700': step.step !== data.status }
+                                { 'bg-primary text-primary-contrast border-primary': step.step === data.status, 'border-surface-200': step.step !== data.status }
                             ]">
                                 <component :is="step.icon" />
                             </span>

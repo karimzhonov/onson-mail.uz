@@ -1,7 +1,7 @@
 <template>
     <section class="pt-20" id="tracker">
         <div
-            class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 dark:from-gray-900 dark:to-body-color">
+            class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200 ">
             <div class="absolute right-0 top-0 h-full w-full flex justify-end">
                 <span class="flex opacity-20">
                     <span class="w-16 h-32 rounded-l-full flex bg-primary blur-2xl"></span>
@@ -18,12 +18,12 @@
             <div
                 class="flex flex-col items-center font-bold relative text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">
                 <h2 v-if="useI18n().locale.value === 'ru'"
-                    class="text-center text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                    class="text-center text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
                     Получите свою
                     <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">посылку</span>
                     через
                 </h2>
-                <h2 v-else class="text-center text-gray-800 pt-4 dark:text-white font-bold text-4xl md:text-5xl lg:text-6x">
+                <h2 v-else class="text-center text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
                     O'z
                     <span
                         class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">yukingizni</span>

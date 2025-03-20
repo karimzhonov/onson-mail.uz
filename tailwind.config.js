@@ -7,6 +7,7 @@ export default {
     "./pages/**/*.{js,ts,vue}",
     "./components/**/*.{js,ts,vue}",
   ],
+  darkMode: false,
   theme: {
     extend: {},
   },
