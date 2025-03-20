@@ -1,7 +1,7 @@
 <template>
   <Banner class="hidden md:flex" />
   <Header />
-  <div class="relative w-full h-full pt-3 gap-4 flex flex-row max-w-screen-lg lg:max-w-screen-xl mx-auto">
+  <div class="relative w-full h-full min-h-[82vh] pt-3 gap-4 flex flex-row max-w-screen-lg lg:max-w-screen-xl mx-auto">
     <AppSidebar class="w-[400px] hidden md:block" />
     <div class="bg-surface-50 rounded-lg p-3 w-full md:h-auto">
       <slot v-if="auth" />
