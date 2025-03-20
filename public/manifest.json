@@ -4,7 +4,7 @@
     "start_url": "/my",
     "display": "standalone",
     "lang": "ru",
-    "scope": "/my",
+    "scope": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "description": "Onson Mail Group",
