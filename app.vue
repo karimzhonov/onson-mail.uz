@@ -1,6 +1,57 @@
 <template>
-  <VitePwaManifest  />
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
+  <div class="fixed inset-x-0 h-screen flex items-start pointer-events-none">
+    <div class="absolute top-0 h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
+    </div>
+    <div class="absolute top-0 right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
+    </div>
+    <div class="absolute bottom-0 h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
+    </div>
+    <div class="absolute bottom-0 right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
+    </div>
+    <!-- <div class="absolute bottom-[70%] right-0 h-20 w-3/5 bg-gradient-to-r from-[#8cd66a] opacity-40 blur-2xl dark:from-[#670ccf] dark:opacity-40">
+    </div>
+    <div class="absolute bottom-[40%] h-24 w-2/3 bg-gradient-to-br from-primary opacity-20 blur-2xl dark:from-[#570cac] dark:invisible dark:opacity-40">
+    </div> -->
+  </div>
+  <div class="absolute inset-y-0 w-44 left-0 hidden dark:flex">
+    <div
+      class="h-full md:h-1/2 lg:h-full w-full bg-gradient-to-tr opacity-40 dark:blur-2xl dark:from-[#570cac] dark:opacity-20">
+    </div>
+  </div>
+  <Toast />
+  <div class="pb-[85px] md:pb-0 h-full">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
+  <MobileNavBar />
+  <div v-if="loader().loading" class="absolute top-0 left-0 w-full h-full bg-white z-[9999]">
+    <Loader />
+  </div>
 </template>
+
+<script setup>
+import { token } from './composables'
+import loader from "~/store/loader";
+
+useHead({
+  title: 'Onson Mail',
+  meta: [
+    { name: 'description', content: '' },
+    { charset: 'utf-8' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    { name: 'apple-mobile-web-app-capable', content: 'yes' },
+    { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+    { name: 'apple-mobile-web-app-title', content: 'Onson Mail' },
+  ],
+  link: [
+    { rel: 'icon', type: 'image/png', href: '/logo.png' },
+    { rel: 'manifest', href: "/manifest.json" }
+  ]
+})
+
+onMounted(async () => {
+  if (useRoute().query.access) token.value.access = useRoute().query.access
+  if (useRoute().query.refresh) token.value.refresh = useRoute().query.refresh
+})
+</script>

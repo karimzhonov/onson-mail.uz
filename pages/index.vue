@@ -8,15 +8,18 @@ useHead({
     { rel: 'icon', type: 'image/png', href: '/logo.png' }
   ],
 })
+definePageMeta({
+  layout: 'landing'
+})
 </script>
 <template>
     <div>
-        <SectionsHomeHeroSection/>
-        <SectionsCountDown />
-        <SectionsHomeLatestPodcast/>
-        <SectionsCostCalculator />
-        <SectionsAboutPodux/>
-        <SectionsCallToAction/>
-        <SectionsWhyUs/>
+        <LandingHero />
+        <LandingCountDown />
+        <LandingServices />
+        <LandingCostCalculator />
+        <LandingAbout />
+        <OrderPublic class="mt-2"/>
+        <LandingResults />
     </div>
 </template>
