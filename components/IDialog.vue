@@ -20,7 +20,7 @@ const modal = defineModel({default: false})
     </template>
     <slot />
     <template #footer>
-      <Button class="bottom-3 w-full" severity="secondary">{{ $t('Назад') }}</Button>
+      <Button class="bottom-3 w-full" severity="secondary" @click="modal=false">{{ $t('Назад') }}</Button>
     </template>
   </Drawer>
 </template>
