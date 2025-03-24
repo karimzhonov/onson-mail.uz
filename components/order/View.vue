@@ -18,7 +18,7 @@
                     </FloatLabel>
                     <InputGroupAddon>{{ $t('$') }}</InputGroupAddon>
                 </InputGroup>
-                <OrderDeliveryPoint :value="data.delivery_point" :mode="data.status === 'process_received_datetime' ? `r` : 'w'" />
+                <!-- <OrderDeliveryPoint :value="data.delivery_point" :mode="data.status === 'process_received_datetime' ? `r` : 'w'" /> -->
             </div>
         </div>
     
