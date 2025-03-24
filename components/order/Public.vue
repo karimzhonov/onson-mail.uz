@@ -31,7 +31,7 @@
                     <div class="mx-auto max-w-md sm:max-w-xl pt-5">
                         <div class="flex items-center relative gap-x-2">
                             <input v-model="number" type="text" :placeholder="$t('Введите номер отслеживания')" @keydown.enter="fetch_order"
-                                class="outline-none border-2 border-transparent focus:border-primary bg-body text-gray-600  rounded-3xl px-6 py-3 w-full">
+                                class="uppercase outline-none border-2 border-transparent focus:border-primary bg-body text-gray-600  rounded-3xl px-6 py-3 w-full">
                             <div
                                 class="sm:inline-flex sm:min-w-max absolute sm:relative top-0.5 right-0.5 sm:top-0 sm:right-0">
                                 <button class="min-w-max p-3 sm:py-3 sm:px-6 text-white border-2 border-transparent relative group" @click="fetch_order">
@@ -163,7 +163,7 @@ export default {
                 return
             }
             try {
-                const response = await this.$api.get(`/cargo/order/number/${this.number}/`)
+                const response = await this.$api.get(`/cargo/order/number/${this.number.toUpperCase()}/`)
                 this.order = response.data
             } catch {
                 this.error = true

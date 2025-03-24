@@ -22,7 +22,7 @@
         </a>
 
         <a class="flex flex-col items-center" @click="profile_open = true">
-            <Menu />
+            <MenuIcon />
             <p>{{ $t('Профиль') }}</p>
         </a>
         <Drawer position="right" v-model:visible="profile_open" class="!w-[350px]">
@@ -38,17 +38,35 @@
                 <h2 v-else class="font-bold text-lg">{{ $t('Пользователь') }}</h2>
             </template>
             <AppSidebar />
-            <Button v-if="useUser().user?.id" class="w-full mt-2" severity="danger" @click="useUser().logout">
+            <Button v-if="user.id" class="w-full mt-2" severity="danger" @click="logout">
                 {{ $t('Выйти') }}
             </Button>
         </Drawer>
     </div>
 </template>
-<script setup>
+<script>
 import { Home, IdCard, Package, ShoppingBag, Menu } from 'lucide-vue-next'
 import { useUser } from "@/store/user"
 
-const user = computed(() => useUser().user)
-const p = useLocalePath()
-const profile_open = ref(false)
+export default {
+    components: {Home, IdCard, Package, ShoppingBag, MenuIcon: Menu},
+    data() {
+        return {
+            profile_open: false,
+        }
+    },
+    computed: {
+        user: () => useUser().user,
+        path: () => useRoute().fullPath
+    },
+    watch: {
+        path() {
+            this.profile_open = false
+        }
+    },
+    methods: {
+        p: (value) => useLocalePath()(value),
+        logout: () => useUser().logout()
+    }
+}
 </script>
