@@ -2,7 +2,7 @@ name: Nuxt Actions Workflow
 on: push
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: [self-hosted, prod]
     env:
       NUXT_APP_BACKEND_HOST: ${{ secrets.NUXT_APP_BACKEND_HOST }}
       VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
