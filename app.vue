@@ -14,6 +14,7 @@
     </div> -->
   </div>
   <Toast />
+  <ConnectIfError />
   <div class="pb-[85px] md:pb-0 h-full min-h-screen">
     <NuxtLayout>
       <NuxtPage />
