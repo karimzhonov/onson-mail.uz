@@ -7,6 +7,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   });
   nuxtApp.$router.afterEach(() => {
-    setTimeout(() => loader().set_loading(false), 1000)
+    setTimeout(() => loader().set_loading(false), 100)
   });
 });
