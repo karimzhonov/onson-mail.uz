@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     '@nuxtjs/leaflet',
     '@nuxtjs/color-mode',
+    '@artmizu/yandex-metrika-nuxt'
   ],
   ssr: true,
   runtimeConfig: {
@@ -19,6 +20,10 @@ export default defineNuxtConfig({
   colorMode: {
     preference: 'light',
     fallback: 'light',
+  },
+
+  yandexMetrika: {
+    id: '100554141',
   },
 
   primevue: {

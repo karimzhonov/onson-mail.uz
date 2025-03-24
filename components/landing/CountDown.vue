@@ -19,15 +19,15 @@
                 class="flex flex-col items-center font-bold relative text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">
                 <h2 v-if="useI18n().locale.value === 'ru'"
                     class="text-center text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
-                    Получите свою
-                    <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">посылку</span>
+                    Следующей
+                    <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">отгрузки</span>
                     через
                 </h2>
                 <h2 v-else class="text-center text-gray-800 pt-4  font-bold text-4xl md:text-5xl lg:text-6x">
-                    O'z
+                    Keyingi
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">yukingizni</span>
-                    vaqtdan keyin oling
+                        class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">jo'natish</span>
+                    vaqtdan keyin
                 </h2>
                 <div class="flex justify-center gap-5 mt-5">
                     <div class="text-center">

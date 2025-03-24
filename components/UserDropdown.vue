@@ -18,7 +18,7 @@
                 <template #item="{ item, props }">
                     <a v-ripple class="flex items-center" v-bind="props.action">
                         <component :is="item.icon" />
-                        <span>{{ item.label }}</span>
+                        <span>{{ $t(item.label) }}</span>
                     </a>
                 </template>
             </Menu>

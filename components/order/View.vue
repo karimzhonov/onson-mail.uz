@@ -34,8 +34,8 @@
                                 <component :is="step.icon" />
                             </span>
                             <p class="text-sm" :class="{'text-primary': step.step === data.status}">{{ data[step.step] }}</p>
-                            <h3>{{ step.title }}</h3>
-                            <p class="text-sm">{{ step.description }}</p>
+                            <h3>{{ $t(step.title) }}</h3>
+                            <p class="text-sm">{{ $t(step.description) }}</p>
                         </button>
                     </div>
                 </Step>

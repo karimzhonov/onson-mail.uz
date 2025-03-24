@@ -14,7 +14,7 @@ export const cargo = [
         icon: MapPin,
     },
     {
-        title: 'Пасспорт',
+        title: 'Паспортные данные',
         url: '/my/passport',
         icon: IdCard,
     },

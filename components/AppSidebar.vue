@@ -8,7 +8,7 @@
           <template #item="{ item }">
             <NuxtLink :to="item.url" class="flex flex-row px-3 py-2 cursor-pointer">
                 <component :is="item.icon" />
-                <span class="ml-2">{{ item.title }}</span>
+                <span class="ml-2">{{ $t(item.title) }}</span>
             </NuxtLink>
           </template>
         </Menu>
@@ -22,7 +22,7 @@
           <template #item="{ item }">
             <NuxtLink :to="item.url" class="flex flex-row px-3 py-2 cursor-pointer">
                 <component :is="item.icon" />
-                <span class="ml-2">{{ item.title }}</span>
+                <span class="ml-2">{{ $t(item.title) }}</span>
                 <Badge severity="danger" class="ml-2" v-if="item.disabled" :value="$t('Скоро')"/>
             </NuxtLink>
           </template>
@@ -37,7 +37,7 @@
           <template #item="{ item }">
             <NuxtLink :to="item.url" class="flex flex-row px-3 py-2 cursor-pointer">
                 <component :is="item.icon" />
-                <span class="ml-2">{{ item.title }}</span>
+                <span class="ml-2">{{ $t(item.title) }}</span>
                 <Badge severity="danger" class="ml-2" v-if="item.disabled" :value="$t('Скоро')"/>
             </NuxtLink>
           </template>
@@ -52,7 +52,7 @@
           <template #item="{ item }">
             <NuxtLink :to="item.url" class="flex flex-row px-3 py-2 cursor-pointer">
                 <component :is="item.icon" />
-                <span class="ml-2">{{ item.title }}</span>
+                <span class="ml-2">{{ $t(item.title) }}</span>
                 <Badge severity="danger" class="ml-2" v-if="item.disabled" :value="$t('Скоро')"/>
             </NuxtLink>
           </template>
