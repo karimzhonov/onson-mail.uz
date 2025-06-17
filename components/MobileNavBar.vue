@@ -1,25 +1,25 @@
 <template>
     <div
         class="z-[999] p-2 rounded-t-2xl w-full md:hidden h-[70px] bg-white fixed bottom-0 left-0 right-0 flex flex-row justify-between shadow-md">
-        <a class="flex flex-col items-center" :href="p('/my')" :class="useRoute().path === '/my' ? 'text-primary' : ''">
+        <NuxtLink class="flex flex-col items-center" :to="p('/my')" :class="useRoute().path === '/my' ? 'text-primary' : ''">
             <Home />
             <p>{{ $t('Главная') }}</p>
-        </a>
-        <a class="flex flex-col items-center" :href="p('/my/order')"
+        </NuxtLink>
+        <NuxtLink class="flex flex-col items-center" :to="p('/my/order')"
             :class="useRoute().path === '/my/order' ? 'text-primary' : ''">
             <Package />
             <p>{{ $t('Заказы') }}</p>
-        </a>
-        <a class="flex flex-col items-center" :href="p('/my/passport')"
+        </NuxtLink>
+        <NuxtLink class="flex flex-col items-center" :to="p('/my/passport')"
             :class="useRoute().path === '/my/passport' ? 'text-primary' : ''">
             <IdCard />
             <p>{{ $t('Паспорт') }}</p>
-        </a>
-        <a class="flex flex-col items-center" :href="p('/shop')"
+        </NuxtLink>
+        <NuxtLink class="flex flex-col items-center" :to="p('/shop')"
             :class="useRoute().path === '/shop' ? 'text-primary' : ''">
             <ShoppingBag />
             <p>{{ $t('Магазин') }}</p>
-        </a>
+        </NuxtLink>
 
         <a class="flex flex-col items-center" @click="profile_open = true">
             <MenuIcon />
