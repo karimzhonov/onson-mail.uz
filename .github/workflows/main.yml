@@ -1,4 +1,4 @@
-name: Nuxt Actions Workflow
+name: Nuxt Workflow
 on: push
 jobs:
   build:
