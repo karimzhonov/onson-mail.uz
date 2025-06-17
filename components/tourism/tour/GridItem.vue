@@ -29,9 +29,9 @@
                         <div v-else>
                             <Images class="size-6" />
                         </div>
-                        <div class="absolute bg-black/70 rounded-border right-4 top-4 flex flex-col gap-3">
-                            <Tag class="text-nowrap" v-if="item.hot_tour" :value="$t('Горящий тур')" severity="danger" />
-                            <Tag class="text-nowrap" v-if="item.best_proposal" :value="$t('Лучшее предложение')" severity="help" />
+                        <div class="absolute rounded-border right-4 top-4 flex flex-col items-end gap-3">
+                            <Tag class="text-nowrap w-fit" v-if="item.hot_tour" :value="$t('Горящий тур')" severity="danger" />
+                            <Tag class="text-nowrap w-fit" v-if="item.best_proposal" :value="$t('Лучшее предложение')" severity="help" />
                         </div>
                     </div>
                 </div>
@@ -80,5 +80,5 @@ defineEmits<{
     book: []
 }>()
 
-const transitionInterval = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
+const transitionInterval = Math.floor(Math.random() * (10000 - 5000 + 1)) + 5000;
 </script>
