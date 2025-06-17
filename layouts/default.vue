@@ -8,7 +8,7 @@
       <div v-else class="h-screen flex items-center flex-col pt-24">
         <h2 class="text-2xl font-bold text-center">{{ $t('Вы не авторизованы') }}</h2>
         <p class="text-center">{{ $t('Для доступа к личному кабинету необходимо') }}
-          <NuxtLink :href="login" class="text-primary font-bold">{{ $t('войти') }}</NuxtLink>
+          <NuxtLink :to="login" class="text-primary font-bold">{{ $t('войти') }}</NuxtLink>
         </p>
       </div>
     </div>

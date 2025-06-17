@@ -19,11 +19,11 @@
                 <p class="text-sm font-normal text-gray-500 ">{{ item.desc }}</p>
                 <ul class="my-4 space-y-3">
                     <li v-for="link in item.links">
-                        <a :href="link.link" target="_blank"
+                        <NuxtLink :to="link.link" target="_blank"
                             class="flex items-center p-3 text-base font-bold text-gray-900 rounded-lg bg-gray-50 hover:bg-gray-100 group hover:shadow">
                             <img :src="link.icon" height="35" width="35" />
                             <span class="flex-1 ms-3 whitespace-nowrap">{{ $t(link.name) }}</span>
-                        </a>
+                        </NuxtLink>
                     </li>
                 </ul>
             </div>
@@ -61,7 +61,7 @@ export default {
                         {
                             icon: '/icons/safari.svg',
                             name: 'Сайт',
-                            link: 'https://onsontour.uz/'
+                            link: '/tourism'
                         }
                     ]
                 },

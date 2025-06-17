@@ -12,4 +12,7 @@ export default {
     extend: {},
   },
   plugins: [primeui, require("tailwindcss-animated")],
+  corePlugins: {
+    scrollBehavior: true,
+  },
 }

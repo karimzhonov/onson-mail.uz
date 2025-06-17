@@ -15,6 +15,7 @@ definePageMeta({
 <template>
     <div>
         <LandingHero />
+        <TourismSearch class="mt-10" :full="false"/>
         <LandingCountDown />
         <LandingServices />
         <LandingCostCalculator />

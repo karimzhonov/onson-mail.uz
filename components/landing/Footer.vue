@@ -1,6 +1,6 @@
 <template>
-    <footer class="flex justify-center bg-white border-t border-gray-200 ">
-        <div class="p-2 w-full flex justify-between max-w-screen-lg lg:max-w-screen-xl">
+    <footer class="flex justify-center bg-white border-t border-gray-200">
+        <div class="p-2 w-full flex justify-between max-w-screen-lg lg:max-w-screen-2xl">
             <div class="col-span-2 md:col-span-4 lg:col-span-2">
                 <Logo />
             </div>
