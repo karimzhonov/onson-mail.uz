@@ -1,4 +1,4 @@
-name: Nuxt Workflow
+name: Nuxt App Workflow
 on: push
 jobs:
   build:
