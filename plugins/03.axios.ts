@@ -16,6 +16,7 @@ export class Api {
     url: string,
     data: D | null,
     config: AxiosRequestConfig = {},
+    toasted: boolean = true,
     redirect: boolean = true
   ): Promise<AxiosResponse<R>> {
     config.url = url;
@@ -49,29 +50,31 @@ export class Api {
           return error.response
         }
       } else if (error.response?.status == 422) {
+        if (!toasted) throw e
         const message = Object.values(error.response?.data ?? {}).map((v: any) => {
           return v.map((vv: any) => vv.msg).join(', ')
         }).join('. ')
         toast.add({severity: 'error', summary: message, life: 2000})
         throw e
       }
+      if (!toasted) throw e
       const message = Object.values(error.response?.data ?? {}).map((v: any) => typeof v === 'string' ? v : v.join('. ')).join('. ')
       toast.add({severity: 'error', summary: message, life: 2000})
       throw e
     }
   }
 
-  async get<T = any>(url: string, config: AxiosRequestConfig = {}, redirect: boolean=true): Promise<AxiosResponse<T>> {
-    return await this.request<any, T>('get', url, null, config, redirect)
+  async get<T = any>(url: string, config: AxiosRequestConfig = {}, toasted: boolean = false, redirect: boolean=true): Promise<AxiosResponse<T>> {
+    return await this.request<any, T>('get', url, null, config, toasted, redirect)
   }
-  async post<D = any, R = any>(url: string, data: D, config: AxiosRequestConfig = {}): Promise<AxiosResponse<R>> {
-    return await this.request<D, R>('post', url, data, config, true)
+  async post<D = any, R = any>(url: string, data: D, config: AxiosRequestConfig = {}, toasted: boolean = false): Promise<AxiosResponse<R>> {
+    return await this.request<D, R>('post', url, data, config, toasted, true)
   }
-  async patch<D = any, R = any>(url: string, data: D, config: AxiosRequestConfig = {}): Promise<AxiosResponse<R>> {
-    return await this.request<D, R>('patch', url, data, config, true)
+  async patch<D = any, R = any>(url: string, data: D, config: AxiosRequestConfig = {}, toasted: boolean = false): Promise<AxiosResponse<R>> {
+    return await this.request<D, R>('patch', url, data, config, toasted, true)
   }
-  async delete<D = any, R = any>(url: string, data: D, config: AxiosRequestConfig = {}): Promise<AxiosResponse<R>> {
-    return await this.request<D, R>('delete', url, data, config, true)
+  async delete<D = any, R = any>(url: string, data: D, config: AxiosRequestConfig = {}, toasted: boolean = false): Promise<AxiosResponse<R>> {
+    return await this.request<D, R>('delete', url, data, config, toasted, true)
   }
 }
 

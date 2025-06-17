@@ -6,7 +6,7 @@ export const useUser = defineStore("user", {
     actions: {
         async fetch_user() {
             const { $api } = useNuxtApp()
-            const r = await $api.get("/oauth/me/", {}, false)
+            const r = await $api.get("/oauth/me/", {}, false, false)
             this.user = r?.data
         },
         logout() {
