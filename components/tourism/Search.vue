@@ -54,9 +54,6 @@
                 </InputGroup>
                 <label for="positions" class="ml-10">{{$t('Даты тура')}}</label>
             </FloatLabel>
-            <Button type="submit" class="hidden lg:block">
-                {{ $t('Поиск тура') }}
-            </Button>
             <div v-if="full">
                 <TourismTourFiltersHotelRating />
             </div>
@@ -78,7 +75,7 @@
             <div v-if="full">
                 <TourismTourFiltersType />
             </div>
-            <Button type="submit" class="block col-span-2 lg:hidden">
+            <Button type="submit" class="md:col-span-2 col-span-1">
                 {{ $t('Поиск тура') }}
             </Button>
         </Form>
