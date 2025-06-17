@@ -54,6 +54,9 @@
                 </InputGroup>
                 <label for="positions" class="ml-10">{{$t('Даты тура')}}</label>
             </FloatLabel>
+            <Button type="submit" class="!hidden lg:!block">
+                {{ $t('Поиск тура') }}
+            </Button>
             <div v-if="full">
                 <TourismTourFiltersHotelRating />
             </div>
@@ -75,7 +78,7 @@
             <div v-if="full">
                 <TourismTourFiltersType />
             </div>
-            <Button type="submit" class="md:col-span-2 col-span-1">
+            <Button type="submit" class="!block col-span-2 lg:!hidden">
                 {{ $t('Поиск тура') }}
             </Button>
         </Form>
@@ -158,7 +161,7 @@ const go_to_search = ({values}: {values: any}) => {
     params.set('hotel', useState('tourism_hotel', () => []).value.join(','))
 
     params.set('food', useState('tourism_search_food', () => []).value.join(','))
-    params.set('services', useState('tourism_search_food', () => []).value.join(','))
+    params.set('services', useState('tourism_search_service', () => []).value.join(','))
     params.set('region', useState('tourism_regions', () => []).value.join(','))
     params.set('type', useState('tourism_search_type', () => []).value.join(','))
 

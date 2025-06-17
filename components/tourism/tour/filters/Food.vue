@@ -9,7 +9,7 @@
                 :disabled="isFetching">
                 <template #option="{option}">
                     <div class="flex justify-between items-center w-full">
-                        <span>{{ option[`name_${$i18n.locale}`] ?? option.name }}</span>
+                        <span>{{ option[`name_${$i18n.locale}`] ?? option.name }} <strong>({{ option.code }})</strong></span>
                         <Info v-if="option[`description_${$i18n.locale}`] ?? option.description" class="size-5" v-tooltip="option[`description_${$i18n.locale}`] ?? option.description" />
                     </div>
                 </template>
