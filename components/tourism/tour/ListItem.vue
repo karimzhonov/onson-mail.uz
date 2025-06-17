@@ -38,9 +38,9 @@
                         v-html="item[`description_${$i18n.locale}`] ?? item.description" />
                 </div>
                 <div class="flex flex-col md:items-end gap-8">
-                    <div>
-                        <Tag v-if="item.hot_tour" :value="$t('Горящий тур')" severity="danger" />
-                        <Tag v-if="item.best_proposal" :value="$t('лучшее предложение')" severity="help" />
+                    <div class="flex flex-col gap-3">
+                        <Tag class="text-nowrap" v-if="item.hot_tour" :value="$t('Горящий тур')" severity="danger" />
+                        <Tag class="text-nowrap" v-if="item.best_proposal" :value="$t('Лучшее предложение')" severity="help" />
                     </div>
                     <span class="text-2xl font-semibold">${{ item.min_price_b2b }} ${{ item.min_price_b2c }}</span>
                     <div class="flex flex-row-reverse md:flex-col gap-2">
@@ -68,5 +68,5 @@ const { item } = defineProps<{
 defineEmits<{
     book: []
 }>()
-const transitionInterval = Math.random() * 10000
+const transitionInterval = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
 </script>
