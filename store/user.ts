@@ -10,15 +10,17 @@ export const useUser = defineStore("user", {
             this.user = r?.data
         },
         logout() {
-            token.value.access = null
-            token.value.refresh = null
+            token.value = {}
             window.location.href = useRequestURL().origin
         },
         login() {
             window.location.href = this.loginUrl()
         },
         loginUrl() {
-            return `https://auth.onson-mail.uz?next=${useRequestURL().href}`
-        }
+            return `/login?next=${useRequestURL().href}`
+        },
+        redirect() {
+            window.location.href = useLocalePath()('/')
+        },
     }
 })

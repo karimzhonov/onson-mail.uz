@@ -5,7 +5,7 @@
                 <Utensils />
             </InputGroupAddon>
             <MultiSelect display="chip" :loading="isFetching" filter v-model:model-value="modelValue" :options="data"
-                option-value="id" fluid :option-label="(option: Food) => option[`name_${$i18n.locale}`] ?? option.name"
+                option-value="code" fluid :option-label="(option: Food) => option[`name_${$i18n.locale}`] ?? option.name"
                 :disabled="isFetching">
                 <template #option="{option}">
                     <div class="flex justify-between items-center w-full">
@@ -20,17 +20,11 @@
 </template>
 <script setup lang="ts">
 import { Utensils, Info } from 'lucide-vue-next';
-import { useQuery } from '@tanstack/vue-query';
-import TourismService from '~/services/tourism';
 import type { Food } from '~/types/tourism';
+import { useFoods } from '~/hooks/tourism/hotel/others';
 
-const modelValue = useState('tourism_search_food', () => [])
+const modelValue = defineModel<string[]>()
 
-const tourismService = new TourismService()
-
-const { data, isFetching } = useQuery({
-    queryKey: ['tourism-food'],
-    queryFn: async () => await tourismService.food.list<Food[]>()
-})
+const { data, isFetching } = useFoods()
 
 </script>
