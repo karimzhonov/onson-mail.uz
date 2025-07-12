@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     '@nuxtjs/leaflet',
     '@nuxtjs/color-mode',
-    '@artmizu/yandex-metrika-nuxt'
+    '@artmizu/yandex-metrika-nuxt',
+    'nuxt-telegram-auth',
   ],
   ssr: true,
   runtimeConfig: {

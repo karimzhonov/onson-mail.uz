@@ -81,24 +81,35 @@ export default {
     methods: {
         getDelta() {
             const d = new Date();
-            d.setHours(23)
-            d.setMinutes(59)
-            d.setSeconds(59)
-            const day = d.getDay()
-            const delta = day <= 3 ? 3 : (day <= 6 ? 6 : 4)
-            const newDate = d.getDate() + (delta - day)
-            return new Date(d.setDate(newDate))
+            d.setHours(23, 59, 59, 999); // до конца дня
+            const day = d.getDay();
+            const delta = day <= 3 ? 3 : (day <= 6 ? 6 : 4); // следующая среда или суббота
+            d.setDate(d.getDate() + (delta - day));
+            return d;
         },
         countdownFunc() {
-            const now = new Date()
-            this.days = this.delta.getDate() - now.getDate()
-            this.hours = this.delta.getHours() - now.getHours()
-            this.minutes = this.delta.getMinutes() - now.getMinutes()
-            this.seconds = this.delta.getSeconds() - now.getSeconds()
+            const now = new Date();
+            const diff = this.delta - now; // разница в мс
+
+            if (diff <= 0) {
+                this.days = 0;
+                this.hours = 0;
+                this.minutes = 0;
+                this.seconds = 0;
+                clearInterval(this.refreshIntervalId);
+                return;
+            }
+
+            const totalSeconds = Math.floor(diff / 1000);
+            this.days = Math.floor(totalSeconds / 86400);
+            this.hours = Math.floor((totalSeconds % 86400) / 3600);
+            this.minutes = Math.floor((totalSeconds % 3600) / 60);
+            this.seconds = totalSeconds % 60;
         },
         countdown() {
-            setInterval(() => this.countdownFunc(), 1000)
+            return setInterval(() => this.countdownFunc(), 1000);
         }
     }
+
 }
 </script>

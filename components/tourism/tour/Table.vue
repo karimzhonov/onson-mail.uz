@@ -1,18 +1,4 @@
 <template>
-    <!-- <div class="w-full relative py-4 md:py-5 px-3 md:px4 rounded-2xl bg-gradient-to-tr from-gray-100 to-gray-200" :class="{'h-screen': isFetching}">
-        <div class="absolute right-0 top-0 h-full w-full flex justify-end">
-            <span class="flex opacity-20">
-                <span class="w-16 h-32 rounded-l-full flex bg-primary blur-2xl"></span>
-                <span class="w-16 h-32 rounded-r-full flex bg-[#f88fc2] blur-2xl mt-14"></span>
-            </span>
-        </div>
-
-        <div class="absolute left-0 bottom-0 h-full w-full flex items-end">
-            <span class="flex opacity-20">
-                <span class="w-16 h-32 rounded-l-full flex bg-primary blur-2xl"></span>
-                <span class="w-16 h-32 rounded-r-full flex bg-[#f88fc2] blur-2xl mt-14"></span>
-            </span>
-        </div> -->
         <Loading :loading="isFetching">
             <div class="flex justify-end w-full">
                 <SelectButton class="hidden md:block" v-model="layout" :options="layoutOptions" :allowEmpty="false">
@@ -59,7 +45,6 @@
                 </template>
             </DataView>
         </Loading>
-    <!-- </div> -->
 </template>
 <script lang="ts" setup>
 import { Grid, Menu, FunnelX } from 'lucide-vue-next';

@@ -1,25 +1,6 @@
+import type { Hotel } from "./hotel"
+import type { Region } from "./region"
 
-export interface Country {
-    id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    can_from: boolean
-    can_to: boolean
-    active: boolean
-}
-
-
-export interface Region {
-    id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    can_from: boolean
-    can_to: boolean
-    active: boolean
-    country: Country
-}
 
 export interface Food {
     code: string
@@ -49,29 +30,6 @@ export interface Type {
     description: string
     description_uz: string
     description_ru: string
-}
-
-export interface HotelType {
-    id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
-}
-
-export interface Hotel {
-    id: number
-    type: HotelType
-    region: Region
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
-    stars: number
 }
 
 interface Image {

@@ -14,24 +14,45 @@
     </div> -->
   </div>
   <Toast />
-  <ConnectIfError />
   <div class="pb-[85px] md:pb-0 h-full min-h-screen">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
   </div>
   <MobileNavBar />
-  <div v-if="loader().loading" class="absolute top-0 left-0 w-full h-full bg-white z-[998]">
-    <Loader />
+  <div
+    v-if="loader.loading"
+    class="fixed inset-0 z-[999] flex items-center justify-center transition-opacity duration-1000"
+    :class="{
+      'opacity-100': loader.currentPhase !== 'background-fade',
+      'opacity-0': loader.currentPhase === 'background-fade'
+    }"
+  >
+    <!-- Лого -->
+    <div
+      class="transition-opacity duration-1000 h-full"
+      :class="{
+        'opacity-100': loader.currentPhase === 'initial' || loader.currentPhase === 'background-fade',
+        'opacity-0': loader.currentPhase === 'logo-fade'
+      }"
+    >
+      <Loader />
+    </div>
+
+    <!-- Фон -->
+    <div class="absolute inset-0 bg-surface-0 dark:bg-surface-950 -z-10" />
   </div>
+
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { token } from './composables'
-import loader from "~/store/loader";
+import useLoader from '@/store/loader'
 
 const colorMode = useColorMode();
 colorMode.preference = 'light';
+
+const loader = useLoader()
 
 useHead({
   title: 'Onson Mail',
@@ -50,8 +71,8 @@ useHead({
 })
 
 onMounted(async () => {
-  if (useRoute().query.access) token.value.access = useRoute().query.access
-  if (useRoute().query.refresh) token.value.refresh = useRoute().query.refresh
+  if (useRoute().query.access) token.value.access = useRoute().query.access?.toString() ?? ''
+  if (useRoute().query.refresh) token.value.refresh = useRoute().query.refresh?.toString() ?? ''
 })
 </script>
 <style>

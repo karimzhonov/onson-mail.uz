@@ -18,29 +18,9 @@
             <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">отдых мечты?</span>
             Найдём за вас!
         </h1>
-        <Form v-slot="$form" method="post" @submit="go_to_search" :initial-values="filters" class="md:grid flex flex-col grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-3 mt-3 bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">
-            <FloatLabel class="w-full">
-                <InputGroup>
-                    <InputGroupAddon>
-                        <PlaneTakeoff />
-                    </InputGroupAddon>
-                    <MultiSelect display="chip" :loading="countriesFromLoading" filter name="from_country" 
-                        :options="countriesFrom?.filter((v: Country) => !$form.to_country?.value.includes(v.id))" option-value="id" 
-                        :optionLabel="(v: Country) => v[`name_${$i18n.locale}`] ?? v.name" 
-                        fluid :disabled="countriesFromLoading"
-                    />
-                </InputGroup>
-                <label for="positions" class="ml-10">{{$t('Откуда')}}</label>
-            </FloatLabel>
-            <FloatLabel class="w-full">
-                <InputGroup>
-                    <InputGroupAddon>
-                        <PlaneLanding />
-                    </InputGroupAddon>
-                    <MultiSelect display="chip" :loading="countriesToLoading" filter name="to_country" :options="countriesTo?.filter((v: Country) => !$form.from_country?.value.includes(v.id))" option-value="id" :optionLabel="(v: Country) => v[`name_${$i18n.locale}`] ?? v.name" fluid :disabled="countriesToLoading"/>
-                </InputGroup>
-                <label for="positions" class="ml-10">{{$t('Куда')}}</label>
-            </FloatLabel>
+        <div class="md:grid flex flex-col grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-3 mt-3 bg-clip-text bg-gradient-to-br from-primary to-[#8cd66a]">
+            <TourismFiltersCountry v-model:model-value="filters.from_country" label="Откуда" :icon="PlaneTakeoff" :params="{can_from: true}" />
+            <TourismFiltersCountry v-model:model-value="filters.to_country" label="Куда" :icon="PlaneLanding" :params="{can_to: true}" />
 
             <FloatLabel class="w-full">
                 <InputGroup>
@@ -49,122 +29,94 @@
                     </InputGroupAddon>
                     <DatePicker class="min-w-[200px] w-full" dateFormat="dd.mm.yy"
                         selectionMode="range":manualInput="false" 
-                        v-model="filters.dates" fluid
-                        :default-value="filters.dates"/>
+                        v-model="filters.dates" fluid/>
                 </InputGroup>
-                <label for="positions" class="ml-10">{{$t('Даты тура')}}</label>
+                <label for="positions" class="ml-10">{{$t('Дати тура')}}</label>
             </FloatLabel>
-            <Button type="submit" class="!hidden lg:!block">
+            <Button @click="go_to_search" type="submit" class="!hidden lg:!block">
                 {{ $t('Поиск тура') }}
             </Button>
             <div v-if="full">
-                <TourismTourFiltersHotelRating />
+                <TourismHotelFiltersRating v-model:model-value="filters.hotel_rating" />
             </div>
             <div v-if="full">
-                <TourismTourFiltersHotelType />
+                <TourismHotelFiltersType v-model:model-value="filters.hotel_type" />
             </div>
             <div v-if="full">
-                <TourismTourFiltersFood />
+                <TourismHotelFiltersFood v-model:model-value="filters.food" />
             </div>
             <div v-if="full">
-                <TourismTourFiltersService />
+                <TourismTourFiltersService v-model:model-value="filters.services" />
             </div>
             <div v-if="full">
-                <TourismTourFiltersRegion :key="$form.to_country?.value" :countries="$form.to_country?.value" />
+                <TourismFiltersRegion :countries="filters.to_country" v-model:model-value="filters.region" />
             </div>
             <div v-if="full" class="col-span-1 lg:col-span-2">
-                <TourismTourFiltersHotel :key="$form.to_country?.value" :countries="$form.to_country?.value"/>
+                <TourismTourFiltersHotel v-model:model-value="filters.hotel" :countries="filters.to_country" :regions="filters.region"/>
             </div>
             <div v-if="full">
-                <TourismTourFiltersType />
+                <TourismTourFiltersType v-model:model-value="filters.type" />
             </div>
-            <Button type="submit" class="!block col-span-2 lg:!hidden">
+            <Button @click="go_to_search" class="!block col-span-2 lg:!hidden">
                 {{ $t('Поиск тура') }}
             </Button>
-        </Form>
+        </div>
     </div>
 </template>
 <script lang="ts" setup>
 import dayjs from 'dayjs'
-import {useQuery} from '@tanstack/vue-query'
 import {PlaneTakeoff, PlaneLanding, CalendarDays} from 'lucide-vue-next'
-import TourismService from '~/services/tourism'
-import type { Country } from '~/types/tourism'
+import { getArrayParam, getStringArrayParam } from '~/shared/utils';
 
 defineProps<{
     full?: boolean
 }>()
 
 const route = useRoute()
-const tourismService = new TourismService()
 
-const filters = computed<{
-    from_country: string[],
-    to_country: string[],
+const now = new Date()
+const default_from_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
+const default_to_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 8)
+
+const filters = ref<{
+    from_country: number[]
+    to_country: number[]
     dates: Date[]
-}>(() => {
-    let data: any
-    try {
-        data = {
-            from_country: route.query.from_country ? route.query.from_country?.toString().split(',').map(parseInt) : [],
-            to_country: route.query.to_country ? route.query.to_country?.toString().split(',').map(parseInt) : [],
-            from_date: null,
-            to_date: null
-        }
-    } catch {
-        data = {
-            from_country: [],
-            to_country: [],
-            from_date: null,
-            to_date: null
-        }
-    }
-    
-    const now = new Date()
-    const default_from_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1)
-    const default_to_date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 8)
-
-    try {
-        data.dates = [
-            route.query.from_date ? new Date(route.query.from_date?.toString()) : default_from_date,
-            route.query.to_date ? new Date(route.query.to_date?.toString()) : default_to_date
-        ]
-    } catch {
-        data.dates = [
-            default_from_date,
-            default_to_date
-        ]
-    }
-    return data
+    region: number[]
+    hotel_rating?: number
+    hotel_type: number[]
+    hotel: number[]
+    food: string[]
+    services: number[]
+    type: number[]
+}>({
+    from_country: getArrayParam('from_country'),
+    to_country: getArrayParam('to_country'),
+    dates:[
+        route.query.from_date ? new Date(route.query.from_date?.toString()) : default_from_date,
+        route.query.to_date ? new Date(route.query.to_date?.toString()) : default_to_date
+    ],
+    region: getArrayParam('region'),
+    hotel_type: getArrayParam('hotel_type'),
+    hotel: getArrayParam('hotel'),
+    food: getStringArrayParam('food'),
+    services: getArrayParam('service'),
+    type: getArrayParam('type'),
 })
 
-const {data: countriesFrom, isFetching: countriesFromLoading} = useQuery({
-    queryKey: ['tourism_from_country'],
-    queryFn: async () => await tourismService.country.list<Country[]>({can_from: true})
-})
-
-const {data: countriesTo, isFetching: countriesToLoading} = useQuery({
-    queryKey: ['tourism_to_country'],
-    queryFn: async () => await tourismService.country.list<Country[]>({can_to: true})
-})
-
-const go_to_search = ({values}: {values: any}) => {
-    const params = new URLSearchParams(JSON.parse(JSON.stringify(route.query)))
-    values.from_country.length > 0 ? params.set('from_country', values.from_country.toString()) : params.set('from_country', '')
-    values.to_country.length > 0 ? params.set('to_country', values.to_country.toString()) : params.set('to_country', '')
-    
-    params.set('from_date', dayjs(filters.value.dates[0]).format('YYYY-MM-DD'))
-    params.set('to_date', dayjs(filters.value.dates[1]).format('YYYY-MM-DD'))
-
-    params.set('hotel_rating', useState('tourism_search_hotel_rating', () => undefined).value || '')
-    params.set('hotel_type', useState('tourism_search_hotel_type', () => []).value.join(','))
-    params.set('hotel', useState('tourism_hotel', () => []).value.join(','))
-
-    params.set('food', useState('tourism_search_food', () => []).value.join(','))
-    params.set('services', useState('tourism_search_service', () => []).value.join(','))
-    params.set('region', useState('tourism_regions', () => []).value.join(','))
-    params.set('type', useState('tourism_search_type', () => []).value.join(','))
-
-    return navigateTo(`/tourism/search?${params.toString()}`)
+const go_to_search = () => {
+    const params = new URLSearchParams({
+        from_country: filters.value.from_country.toString(),
+        to_country: filters.value.to_country.toString(),
+        from_date: dayjs(filters.value.dates[0]).format('YYYY-MM-DD'),
+        to_date: dayjs(filters.value.dates[1]).format('YYYY-MM-DD'),
+        regions: filters.value.region.toString(),
+        hotel_type: filters.value.hotel_type.toString(),
+        hotel: filters.value.hotel.toString(),
+        food: filters.value.food.toString(),
+        services: filters.value.services.toString(),
+        type: filters.value.type.toString()
+    })
+    return navigateTo(useLocalePath()(`/tourism/search?${params.toString()}`))
 }
 </script>

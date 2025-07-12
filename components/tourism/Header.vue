@@ -8,30 +8,18 @@ export default {
     },
     methods: {
         localPath: useLocalePath(),
-        toggleNav(event) {
-            event.preventDefault()
-            this.navIsOpen = !this.navIsOpen
-        },
     },
     computed: {
         navLinks() {
             return [
                 {
-                    text: this.$t("Наши услуги"),
-                    href: this.localPath("/#services"),
+                    text: this.$t("Туры"),
+                    href: this.localPath("/tourism/search"),
                 },
                 {
-                    text: this.$t("О нас"),
-                    href: this.localPath("/#about")
+                    text: this.$t("Отели"),
+                    href: this.localPath("/tourism/hotel")
                 },
-                {
-                    text: this.$t("Отслежовать посылку"),
-                    href: this.localPath("/#tracker")
-                },
-                {
-                    text: this.$t("Наши достижения"),
-                    href: this.localPath("/#records")
-                }
             ]
         }
     }
@@ -40,7 +28,7 @@ export default {
 </script>
 <template>
     <header class="px-2 sticky bg-white inset-x-0 top-0 py-3 z-50 header flex justify-center">
-        <nav class="max-w-screen-lg lg:max-w-screen-xl flex items-center justify-between w-full relative">
+        <nav class="max-w-screen-lg lg:max-w-screen-2xl flex items-center justify-between w-full relative">
             <!-- app logo -->
             <div class="inline-flex relative bg-inherit">
                 <Logo />
@@ -65,7 +53,7 @@ export default {
                 <LangSwitcher />
                 <UserDropdown />
                 <div class="flex lg:hidden border-l border-box-border pl-2">
-                    <button @click="toggleNav" class="outline-none w-7 h-auto flex flex-col relative">
+                    <button @click.prevent="navIsOpen = !navIsOpen" class="outline-none w-7 h-auto flex flex-col relative">
                         <span
                             class="w-6 h-0.5 rounded-full bg-gray-500  transition-all duration-300 ease-linear"
                             :class="navIsOpen ? 'translate-y-1.5 rotate-[40deg] scale-x-100 ' : ' scale-x-50 origin-left'"></span>

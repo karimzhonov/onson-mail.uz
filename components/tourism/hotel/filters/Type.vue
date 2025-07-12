@@ -19,17 +19,13 @@
 </template>
 <script setup lang="ts">
 import { Hotel, Info } from 'lucide-vue-next';
-import { useQuery } from '@tanstack/vue-query';
-import TourismService from '~/services/tourism';
-import type { HotelType } from '~/types/tourism';
+import type { HotelType } from '~/types/tourism/hotel';
+import { useHotelType } from '~/hooks/tourism/hotel';
 
-const modelValue = useState('tourism_search_hotel_type', () => [])
-
-const tourismService = new TourismService()
-
-const {data, isFetching} = useQuery({
-    queryKey: ['tourism-hotel-type'],
-    queryFn: async () => await tourismService.hotelType.list<HotelType[]>()
+const modelValue = defineModel<number[]>({
+    default: () => []
 })
+
+const {data, isFetching} = useHotelType()
 
 </script>
