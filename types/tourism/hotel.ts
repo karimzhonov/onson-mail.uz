@@ -1,52 +1,36 @@
 import type { Region } from "./region"
 import type { Food } from "."
+import type { Translations } from ".."
 
-export interface HotelType {
+export interface HotelType extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
-export interface HotelRoomType { 
+export interface HotelRoomType extends Translations { 
     id: string
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
-export interface HotelServiceType { 
+export interface HotelServiceType extends Translations { 
     id: string
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
-interface HotelFood {
+export interface HotelFood {
     id: number
     food: Food
     price_b2b: number
     price_b2c: number
 }
 
-interface HotelRoom {
+export interface HotelRoom extends Translations {
     id: number
     room: HotelRoomType
     price_b2b: number
     price_b2c: number
     free_rooms: number
+    image?: string
 }
 
-interface HotelService {
+export interface HotelService {
     id: number
     service: HotelServiceType
     price_b2b: number
@@ -58,40 +42,23 @@ interface HotelImage {
     image: string
 }
 
-export interface Hotel {
+export interface Hotel extends Translations {
     id: number
     type: HotelType
     region: Region
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
     stars: number
     hotelfood_set: HotelFood[]
     hotelroom_set: HotelRoom[]
     hotelservice_set: HotelService[]
     hotelimage_set: HotelImage[]
-
+    min_price_b2b: number
+    min_price_b2c: number
 }
 
-export interface Service {
+export interface Service extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
-export interface Room {
+export interface Room extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }

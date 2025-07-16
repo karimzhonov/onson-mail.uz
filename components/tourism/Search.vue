@@ -90,18 +90,18 @@ const filters = ref<{
     services: number[]
     type: number[]
 }>({
-    from_country: getArrayParam('from_country'),
-    to_country: getArrayParam('to_country'),
+    from_country: getArrayParam(route.query, 'from_country'),
+    to_country: getArrayParam(route.query, 'to_country'),
     dates:[
         route.query.from_date ? new Date(route.query.from_date?.toString()) : default_from_date,
         route.query.to_date ? new Date(route.query.to_date?.toString()) : default_to_date
     ],
-    region: getArrayParam('region'),
-    hotel_type: getArrayParam('hotel_type'),
-    hotel: getArrayParam('hotel'),
-    food: getStringArrayParam('food'),
-    services: getArrayParam('service'),
-    type: getArrayParam('type'),
+    region: getArrayParam(route.query, 'region'),
+    hotel_type: getArrayParam(route.query, 'hotel_type'),
+    hotel: getArrayParam(route.query, 'hotel'),
+    food: getStringArrayParam(route.query, 'food'),
+    services: getArrayParam(route.query, 'service'),
+    type: getArrayParam(route.query, 'type'),
 })
 
 const go_to_search = () => {

@@ -1,35 +1,18 @@
+import type { Translations } from ".."
 import type { Hotel } from "./hotel"
 import type { Region } from "./region"
 
 
-export interface Food {
+export interface Food extends Translations {
     code: string
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
-export interface Service {
+export interface Service extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
-export interface Type {
+export interface Type extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
 }
 
 interface Image {
@@ -37,40 +20,25 @@ interface Image {
     image: string
 }
 
-interface Day {
+interface Day extends Translations {
     id: number
     day: number
-    title: string
-    title_uz: string
-    title_ru: string
-    desc: string
-    desc_uz: string
-    desc_ru: string
     image: string
     region: Region
     hotel: Hotel
 }
 
-interface Price {
+interface Price extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
     price_b2b: boolean
     price_b2c: boolean
 }
 
-export interface Tour {
+export interface Tour extends Translations {
     id: number
     days?: Day[]
     prices?: Price[]
     type: Type[]
-    title: string
-    title_uz: string
-    title_ru: string
-    description: string
-    description_uz: string
-    description_ru: string
     from_date: string
     to_date: string
     from_day: number

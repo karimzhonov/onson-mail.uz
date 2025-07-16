@@ -3,8 +3,11 @@ import { token } from "~/composables";
 import { useUser } from "~/store/user";
 
 
-export const useAuth = () => {
-    const user = useUser()
+export const useAuth = ({
+    onSuccess
+}: {
+    onSuccess: () => void
+}) => {
     const {$api} = useNuxtApp()
 
     return useMutation({
@@ -14,7 +17,7 @@ export const useAuth = () => {
         ),
         onSuccess: (response) => {
             token.value = response.data
-            user.redirect()
+            onSuccess()
         }
     })
 }
