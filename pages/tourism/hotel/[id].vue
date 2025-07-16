@@ -49,7 +49,7 @@
                                         {{ option.room[`name_${$i18n.locale}`] ?? option.room.name }}
                                     </h2>
                                     <p class="text-sm text-start line-clamp-3 mb-3">
-                                        {{ option.room[`name_${$i18n.locale}`] ?? option.room.description }}
+                                        {{ option.room[`description_${$i18n.locale}`] ?? option.room.description }}
                                     </p>
                                 </div>
                                 <div class="flex flex-row justify-center">

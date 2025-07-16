@@ -40,7 +40,7 @@
     </div>
 
     <!-- Фон -->
-    <div class="absolute inset-0 bg-surface-0 dark:bg-surface-950 -z-10" />
+    <div class="absolute inset-0 bg-surface-0 -z-10" />
   </div>
 
 </template>
