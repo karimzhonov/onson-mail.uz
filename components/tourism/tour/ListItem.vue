@@ -21,9 +21,7 @@
                         <Image :src="slotProps.item.image" :alt="slotProps.item.alt" class="w-full h-full" preview />
                     </template>
                 </Galleria>
-                <div v-else>
-                    <Images class="size-16" />
-                </div>
+                <Placeholder :size="28" v-else />
             </div>
             <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                 <div class="flex flex-col md:flex-col justify-between items-start gap-2">
@@ -57,8 +55,6 @@
     </div>
 </template>
 <script setup lang="ts">
-
-import { Images } from 'lucide-vue-next';
 import type { Tour } from '~/types/tourism';
 
 const { item } = defineProps<{

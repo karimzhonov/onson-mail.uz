@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/vue-query"
+import { useMutation, useQuery } from "@tanstack/vue-query"
 import type { LimitOffsetPagination } from "~/types"
-import type { Hotel, HotelType } from "~/types/tourism/hotel"
+import type { Hotel, HotelRoomCalendar, HotelType } from "~/types/tourism/hotel"
 
 
 export const useHotelType = () => {
@@ -35,5 +35,29 @@ export const useHotel = ({id, select}: {id: number | string, select?: (data: Hot
             `/tourism/hotel/hotel/${id}/`,
         ),
         select: (response) => select ? select(response.data) : response.data
+    })
+}
+
+export const useHotelRoomCalendar = ({id}: {id: number | string}) => {
+    return useQuery({
+        queryKey: ['tourism-hotel-room', id],
+        queryFn: async (): Promise<HotelRoomCalendar[]> => [],
+        select: (response) => {
+            const data: Record<string, Record<number, number>> = {}
+            for (const room of response) {
+                if (!data[room.date]) data[room.date] = {}
+                data[room.date][room.room] = room.value
+            }
+            return data
+        }
+    })
+}
+
+export const useChangeHotelRoomCalendar = ({id}: {id: number | string}) => {
+    return useMutation({
+        mutationKey: ['tourism_hotel_room'],
+        mutationFn: async ({values}: {values: HotelRoomCalendar}) => {
+            console.log(values);
+        }
     })
 }

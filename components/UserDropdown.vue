@@ -7,7 +7,7 @@
         <div class="flex flex-row">          
             <Menu :model="items" class="!border-0">
                 <template #start>
-                    <button v-if="userStore.isAuth()" class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
+                    <button v-if="isAuth" class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                         <Avatar :label="userStore.user?.first_name[0]" class="mr-2 cursor-pointer" shape="circle" @click="toggle" />
                         <span class="inline-flex flex-col items-start">
                             <span class="font-bold">{{userStore.user?.first_name}} {{ userStore.user?.last_name }}</span>
@@ -45,6 +45,8 @@ function toggle(event: Event) {
     return user.value?.toggle(event)
 }
 
+const isAuth = computed(userStore.isAuth)
+
 const items = computed(() => [
     {
         label: 'Главная',
@@ -76,15 +78,14 @@ const items = computed(() => [
         badge: 'Скоро'
     },
     {
-        label: userStore.isAuth() ? 'Выйти' : 'Войти',
-        licon: userStore.isAuth() ? LogOut : LogIn,
+        label: isAuth.value ? 'Выйти' : 'Войти',
+        licon: isAuth.value ? LogOut : LogIn,
         command: () => {
-            if (userStore.isAuth()) {
+            if (isAuth.value) {
                 useUser().logout()
             } else {
                 useUser().login()
             }
-            
         }
     },
 ])

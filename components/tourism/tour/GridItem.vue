@@ -26,9 +26,7 @@
                                     preview />
                             </template>
                         </Galleria>
-                        <div v-else>
-                            <Images class="size-6" />
-                        </div>
+                        <Placeholder :size="28" v-else />
                         <div class="absolute rounded-border right-4 top-4 flex flex-col items-end gap-3">
                             <Tag class="text-nowrap w-fit" v-if="item.hot_tour" :value="$t('Горящий тур')" severity="danger" />
                             <Tag class="text-nowrap w-fit" v-if="item.best_proposal" :value="$t('Лучшее предложение')" severity="help" />
@@ -69,7 +67,6 @@
     </div>
 </template>
 <script setup lang="ts">
-import { Images } from 'lucide-vue-next';
 import type { Tour } from '~/types/tourism';
 
 const { item } = defineProps<{

@@ -62,3 +62,9 @@ export interface Service extends Translations {
 export interface Room extends Translations {
     id: number
 }
+
+export interface HotelRoomCalendar {
+    date: string
+    room: number
+    value: number
+}

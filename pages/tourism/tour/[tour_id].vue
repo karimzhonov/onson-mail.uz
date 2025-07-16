@@ -8,9 +8,7 @@
                             class="animate-fade-right w-full md:h-full rounded-3xl bg-white  shadow-lg shadow-box-shadow border border-box-border">
                             <img v-if="tour?.images?.[0]?.image" :src="tour?.images?.[0]?.image" alt="image1"
                                 width="500" class="w-full h-full object-cover rounded-2xl">
-                            <div v-else class="flex bg-surface-200 w-full h-full items-center justify-center">
-                                <Images class="size-16" />
-                            </div>
+                            <Placeholder :size="28" v-else />
                         </div>
                     </div>
                     <div class="md:py-2 lg:py-4 relative">
@@ -148,24 +146,24 @@
                                     <div>
                                         <p class="flex flex-row gap-3">
                                             {{ $t('Название') }}: 
-                                            <strong>{{ day.hotel[`name_${$i18n.locale}`] ?? day.hotel.name }}</strong>
+                                            <strong>{{ day.hotel?.[`name_${$i18n.locale}`] ?? day.hotel?.name }}</strong>
                                         </p>
                                         <p class="flex flex-row gap-3">
                                             {{ $t('Тип') }}: 
-                                            <strong>{{ day.hotel.type[`name_${$i18n.locale}`] ?? day.hotel.type.name }}</strong>
+                                            <strong>{{ day.hotel?.type[`name_${$i18n.locale}`] ?? day.hotel?.type.name }}</strong>
                                         </p>
                                         <p class="flex flex-row gap-3">
                                             {{ $t('Класс') }}: 
-                                            <Rating v-model="day.hotel.stars" readonly />
+                                            <Rating v-if="day.hotel" v-model="day.hotel.stars" readonly />
                                         </p>
                                         <p class="flex flex-row gap-3 items-center">
                                             {{ $t('Питание') }}: 
                                             <strong>{{ tour.food?.[`name_${$i18n.locale}`] ?? tour.food?.name }} ({{ tour.food?.code }})</strong>
                                             <Info v-if="tour.food?.[`description_${$i18n.locale}`] ?? tour.food?.description" class="size-5" v-tooltip="tour.food?.[`description_${$i18n.locale}`] ?? tour.food?.description" />
                                         </p>
-                                        <p v-if="day.hotel[`description_${$i18n.locale}`] ?? day.hotel.description" class="flex flex-row gap-3">
+                                        <p v-if="day.hotel?.[`description_${$i18n.locale}`] ?? day.hotel?.description" class="flex flex-row gap-3">
                                             {{ $t('Описание') }}: 
-                                            <strong>{{ day.hotel[`description_${$i18n.locale}`] ?? day.hotel.description }}</strong>
+                                            <strong>{{ day.hotel?.[`description_${$i18n.locale}`] ?? day.hotel?.description }}</strong>
                                         </p>
                                     </div>
                                 </div>
@@ -209,9 +207,7 @@
                             class="animate-fade-left w-full rounded-3xl bg-white h-full shadow-lg shadow-box-shadow border border-box-border">
                             <img v-if="tour?.images?.[1]?.image" :src="tour?.images?.[1]?.image" alt="image1"
                                 width="500" class="w-full h-full object-cover rounded-2xl">
-                            <div v-else class="flex bg-surface-200 w-full h-full items-center justify-center">
-                                <Images class="size-16" />
-                            </div>
+                            <Placeholder :size="28" v-else />
                         </div>
                     </div>
                 </div>
@@ -220,7 +216,7 @@
     </Loading>
 </template>
 <script setup lang="ts">
-import { Route, LandPlot, CalendarDays, Images, Info } from 'lucide-vue-next';
+import { Route, LandPlot, CalendarDays, Info } from 'lucide-vue-next';
 import { useQuery } from '@tanstack/vue-query';
 import TourismService from '~/services/tourism';
 import type { Tour } from '~/types/tourism';
