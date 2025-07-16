@@ -3,17 +3,26 @@ import dayjs, { Dayjs } from 'dayjs'
 import isoWeek from 'dayjs/plugin/isoWeek'
 import 'dayjs/locale/ru'
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-vue-next'
+import { useChangeHotelRoomCalendar, useHotel, useHotelRoomCalendar } from '~/hooks/tourism/hotel'
 
 dayjs.extend(isoWeek)
 dayjs.locale('ru')
+
+const {hotelId} = defineProps<{
+    hotelId: string
+}>()
+
+const { data: hotel } = useHotel({id: hotelId})
 
 const currentMonth = ref(dayjs())
 const selectedDay = ref<Dayjs>()
 const dialogVisible = ref(false)
 
-const rooms = ref<Record<string, any>>({}) // {'2025-08-15': { vip: 1, ... }}
+const {data: rooms, isFetching} = useHotelRoomCalendar({id: hotelId})
+const {mutate, error, isError, isPending} = useChangeHotelRoomCalendar({id: hotelId})
 
-const form = ref({ vip: 0, lux: 0, regular: 0 })
+const disabled = computed(() => isPending.value)
+const form = ref<Record<string, Record<number, number>>>({})
 
 const daysInMonth = computed(() => {
     const start = currentMonth.value.startOf('month')
@@ -22,6 +31,7 @@ const daysInMonth = computed(() => {
 
     let day = start.startOf('isoWeek')
     while (day.isBefore(end.endOf('isoWeek'))) {
+        form.value[day.format('YYYY-MM-DD')] = {}
         days.push(day)
         day = day.add(1, 'day')
     }
@@ -30,16 +40,17 @@ const daysInMonth = computed(() => {
 
 function openDialog(day: Dayjs) {
     selectedDay.value = day
-    const key = day.format('YYYY-MM-DD')
-    const existing = rooms.value[key]
-    form.value = existing ? { ...existing } : { vip: 0, lux: 0, regular: 0 }
     dialogVisible.value = true
 }
 
 function saveRooms() {
-    if (selectedDay.value) {
-        const key = selectedDay.value.format('YYYY-MM-DD')
-        rooms.value[key] = { ...form.value }
+    for (const date in form.value) {
+        for (const room in form.value[date]) {
+            const data = {
+                room: Number(room), date, value: form.value[date][room]
+            }
+            mutate({values: data})
+        }
         dialogVisible.value = false
     }
 }
@@ -60,7 +71,7 @@ function nextYear() {
 </script>
 
 <template>
-    <div>
+    <Loading :loading="isFetching">
 
         <!-- Навигация -->
         <div class="flex items-center justify-between mb-4">
@@ -99,39 +110,26 @@ function nextYear() {
                 class="border md:rounded-md p-2 cursor-pointer hover:bg-primary-50 min-h-[60px] lg:aspect-video relative"
                 :class="{ 'opacity-30': !day.isSame(currentMonth, 'month') }" @click="openDialog(day)">
                 <div class="font-semibold absolute top-1 right-1 text-sm bg-primary rounded-full w-5 h-5 text-white">{{ day.date() }}</div>
-                <div v-if="rooms[day.format('YYYY-MM-DD')]">
-                    <div class="text-xs text-gray-700">
-                        VIP: {{ rooms[day.format('YYYY-MM-DD')].vip }},
-                        LUX: {{ rooms[day.format('YYYY-MM-DD')].lux }},
-                        ОБ: {{ rooms[day.format('YYYY-MM-DD')].regular }}
-                    </div>
+                <div v-if="rooms?.[day.format('YYYY-MM-DD')]">
+                    {{ rooms[day.format('YYYY-MM-DD')] }}
                 </div>
             </div>
         </div>
 
         <!-- Диалог -->
         <IDialog v-model:visible="dialogVisible" modal header="Количество комнат" class="min-w-[400px]">
-            <div class="flex flex-col gap-4">
-                <div>Дата: <strong>{{ selectedDay?.format('DD.MM.YYYY') }}</strong></div>
+            <div class="flex flex-col gap-4" v-if="selectedDay">
+                <Message v-if="isError" severity="error">{{ error }}</Message>
+                <div>Дата: <strong>{{ selectedDay.format('DD.MM.YYYY') }}</strong></div>
 
-                <div class="flex flex-col gap-2">
-                    <label>VIP:</label>
-                    <InputNumber v-model="form.vip" inputId="vip" :min="0" />
+                <div class="flex flex-col gap-2" v-for="room in hotel?.hotelroom_set">
+                    <label>{{ room.room[`name_${$i18n.locale}`] ?? room.room.name }}:</label>
+                    <InputNumber v-model="form[selectedDay.format('YYYY-MM-DD')][room.id]" :min="0" :disabled="disabled" />
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label>Люкс:</label>
-                    <InputNumber v-model="form.lux" inputId="lux" :min="0" />
-                </div>
-                <div class="flex flex-col gap-2">
-                    <label>Обычные:</label>
-                    <InputNumber v-model="form.regular" inputId="regular" :min="0" />
+                <div class="flex justify-end">
+                    <Button @click="saveRooms" :disabled="disabled">{{ $t('Сохранить') }}</Button>
                 </div>
             </div>
-
-            <template #footer>
-                <Button label="Отмена" severity="secondary" @click="dialogVisible = false" />
-                <Button label="Сохранить" @click="saveRooms" />
-            </template>
         </IDialog>
-    </div>
+    </Loading>
 </template>

@@ -42,7 +42,8 @@
                 <section v-if="bookingParams.rooms">
                     <h2 class="text-2xl font-bold mb-2">{{$t('Комнаты')}}</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 w-full hotel-select">
-                        <div class="border border-primary-300 rounded-lg p-2 my-2 flex md:flex-col flex-row justify-start gap-3 w-full" v-for="option in item.hotelroom_set">
+                        <div class="border border-primary-300 rounded-lg p-2 my-2 flex md:flex-col flex-row justify-start gap-3 w-full" 
+                        v-for="option in item.hotelroom_set" :class="{'bg-primary-200': bookingParams.rooms[option.id].count > 0}" >
                             <Image v-if="option.image" preview :src="option.image" class="w-32 md:w-full" />
                             <Placeholder :size="28" v-else />
                             <div>
@@ -55,7 +56,14 @@
                                     </p>
                                 </div>
                                 <div class="flex flex-row justify-center">
-                                    <InputNumber input-class="text-center" class="w-[120px]" fluid size="small" v-model="bookingParams.rooms[option.id].count" showButtons buttonLayout="horizontal" :min="0" :max="99">
+                                    <InputNumber input-class="text-center" 
+                                    class="w-[120px]" fluid size="small" 
+                                    v-model="bookingParams.rooms[option.id].count" 
+                                    showButtons buttonLayout="horizontal" 
+                                    :min="0" :max="99" 
+                                    increment-button-class="bg-surface-0"
+                                    decrement-button-class="bg-surface-0"
+                                    >
                                         <template #incrementicon>
                                             <Plus />
                                         </template>
@@ -171,7 +179,7 @@
         <template #header>
             <h2 class="font-bold text-xl">{{ $t('Расписание') }}</h2>
         </template>
-        <TourismHotelCalendar />
+        <TourismHotelCalendar :hotel-id="route.params.id.toString()" />
     </IDialog>
 </template>
 <script setup lang="ts">
@@ -245,7 +253,7 @@ const book = () => {
 }
 </script>
 <style>
-.hotel-select button {
+.hotel-select > button {
     background: transparent!important;
     border: none;
 }
