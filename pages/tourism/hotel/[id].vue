@@ -3,7 +3,11 @@
         <div class="grid grid-cols-12 gap-3 relative h-full">
             <div class="flex flex-col w-full gap-4 col-span-12 lg:col-span-9 mb-3" v-if="item">
                 <section class="flex flex-col gap-3">
-                    <h1 class="text-2xl font-bold">{{ item[`name_${$i18n.locale}`] ?? item.name }}</h1>
+                    <div class="flex flex-row justify-between">
+                        <h1 class="text-2xl font-bold">{{ item[`name_${$i18n.locale}`] ?? item.name }}</h1>
+                        <Button text @click="schedule_show = true">{{ $t('Расписание') }}</Button>
+                    </div>
+                    
                     <div class="flex flex-row gap-1 text-surface-500">
                         <MapPinCheckInside />
                         {{ item.region[`name_${$i18n.locale}`] ?? item.region.name }},
@@ -40,9 +44,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 w-full hotel-select">
                         <div class="border border-primary-300 rounded-lg p-2 my-2 flex md:flex-col flex-row justify-start gap-3 w-full" v-for="option in item.hotelroom_set">
                             <Image v-if="option.image" preview :src="option.image" class="w-32 md:w-full" />
-                            <div v-else class="flex justify-center items-center h-full aspect-video w-full">
-                                <Images class="size-16" />
-                            </div>
+                            <Placeholder :size="28" v-else />
                             <div>
                                 <div>
                                     <h2 class="font-semibold text-start">
@@ -100,8 +102,8 @@
                             </p>
                             <strong>
                                 {{ room.count }} x
-                                ${{ room.room.price_b2c }}  
-                                <span class="text-surface-500 text-sm">/ ${{ room.room.price_b2b }}</span>
+                                ${{ room.room.price_b2c ?? 0 }}  
+                                <span class="text-surface-500 text-sm">/ ${{ room.room.price_b2b ?? 0 }}</span>
                             </strong>
                         </div>
                         
@@ -120,8 +122,8 @@
                                 {{ bookingParams.food.food[`name_${$i18n.locale}`] ?? bookingParams.food.food.name }}
                             </p>
                             <strong>
-                                ${{ bookingParams.food?.price_b2c }}  
-                                <span class="text-surface-400 text-sm">/ ${{ bookingParams.food?.price_b2b }}</span>
+                                ${{ bookingParams.food?.price_b2c ?? 0 }}  
+                                <span class="text-surface-400 text-sm">/ ${{ bookingParams.food?.price_b2b ?? 0 }}</span>
                             </strong>
                         </div>
                     </div>
@@ -141,8 +143,8 @@
                                 {{ service.service[`name_${$i18n.locale}`] ?? service.service.name }}
                             </p>
                             <strong>
-                                ${{ service.price_b2c }}  
-                                <span class="text-surface-400 text-sm">/ ${{ service.price_b2b }}</span>
+                                ${{ service.price_b2c ?? 0 }}  
+                                <span class="text-surface-400 text-sm">/ ${{ service.price_b2b ?? 0 }}</span>
                             </strong>
                         </div>
                     </div>
@@ -165,9 +167,15 @@
             </DataView>
         </section>
     </Loading>
+    <IDialog v-model:model-value="schedule_show" class="w-full">
+        <template #header>
+            <h2 class="font-bold text-xl">{{ $t('Расписание') }}</h2>
+        </template>
+        <TourismHotelCalendar />
+    </IDialog>
 </template>
 <script setup lang="ts">
-import { MapPinCheckInside, Plus, Minus, LaptopMinimalCheck, Images } from 'lucide-vue-next'
+import { MapPinCheckInside, Plus, Minus, LaptopMinimalCheck } from 'lucide-vue-next'
 import { useHotel, useHotels } from '~/hooks/tourism/hotel';
 import type { HotelFood, HotelRoom, HotelService } from '~/types/tourism/hotel';
 
@@ -176,6 +184,7 @@ definePageMeta({
 })
 const route = useRoute()
 const toast = useToast()
+const schedule_show = ref(false)
 
 const bookingParams = ref<{
     food?: HotelFood

@@ -25,7 +25,7 @@ interface Day extends Translations {
     day: number
     image: string
     region: Region
-    hotel: Hotel
+    hotel?: Hotel
 }
 
 interface Price extends Translations {

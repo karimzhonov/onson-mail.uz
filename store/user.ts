@@ -6,7 +6,7 @@ export const useUser = defineStore("user", {
     state: (): {user?: User} => ({}),
     actions: {
         isAuth() {
-            return computed(() => token.value.access && this.user?.username) 
+            return computed(() => token.value.access && this.user?.phone) 
         },
         logout() {
             token.value = {}

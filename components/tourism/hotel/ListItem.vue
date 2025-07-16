@@ -21,9 +21,7 @@
                         <Image :src="`${slotProps.item.image}`" :alt="slotProps.item.image" class="w-full md:w-60 h-52 md:h-40" image-class="!mx-auto" preview />
                     </template>
                 </Galleria>
-                <div v-else class="flex justify-center items-center h-full aspect-video w-full">
-                    <Images class="size-16" />
-                </div>
+                <Placeholder :size="28" v-else />
                 <div class="absolute top-3 right-3">
                     <Tag :value="item.type[`name_${$i18n.locale}`] ?? item.type.name" />
                 </div>
@@ -64,7 +62,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { Images, MapPinCheckInside } from 'lucide-vue-next';
+import { MapPinCheckInside } from 'lucide-vue-next';
 import type { Hotel } from '~/types/tourism/hotel';
 
 const { item } = defineProps<{
