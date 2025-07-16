@@ -38,7 +38,7 @@
                 <div class="p-3">
                     <div class="flex flex-col justify-between items-start gap-2">
                         <div class="mb-2">
-                            <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{
+                            <span class="font-medium text-surface-500 text-sm">{{
                                 item.type.map((type) =>
                                 type[`name_${$i18n.locale}`] ?? type.name).join(', ') }}</span>
                             <div class="text-lg font-medium mt-2 line-clamp-2">{{ item[`title_${$i18n.locale}`] ??

@@ -28,7 +28,7 @@
             <div class="flex flex-col md:flex-row justify-between md:items-center flex-1 gap-6">
                 <div class="flex flex-col md:flex-col justify-between items-start gap-2">
                     <div>
-                        <span class="font-medium text-surface-500 dark:text-surface-400 text-sm">{{
+                        <span class="font-medium text-surface-500 text-sm">{{
                             item.type.map((type) =>
                                 type[`name_${$i18n.locale}`] ?? type.name).join(', ')}}</span>
                         <div class="text-lg font-medium mt-2">{{ item[`title_${$i18n.locale}`] ?? item.title }}

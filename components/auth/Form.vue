@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-surface-0 dark:bg-surface-900 p-6 shadow rounded-border max-w-[500px] w-full lg:w-6/12 mx-auto">
+    <div class="bg-surface-0 p-6 shadow rounded-border max-w-[500px] w-full lg:w-6/12 mx-auto">
         <div class="mb-8">
             <Logo class="w-32 mx-auto logo-spin" />
         </div>

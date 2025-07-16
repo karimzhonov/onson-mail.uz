@@ -1,14 +1,13 @@
 <template>
     <button @click="toggle"
         class="hidden md:block outline-none bg-transparent p-2.5 rounded-full text-gray-600  hover:bg-gray-100">
-        <Avatar v-if="userStore.isAuth()" :label="userStore.user?.first_name[0]" class="cursor-pointer" shape="circle" />
-        <CircleUserRound class="size-7 text-gray-700 cursor-pointer" v-else />
+        <CircleUserRound class="size-7 text-gray-700 cursor-pointer" />
     </button>
     <Popover ref="user">
         <div class="flex flex-row">          
             <Menu :model="items" class="!border-0">
                 <template #start>
-                    <button v-if="userStore.isAuth()" @click="() => $router.push(useLocalePath()('/profile'))" v-ripple class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
+                    <button v-if="userStore.isAuth()" class="relative overflow-hidden w-full border-0 bg-transparent flex items-center p-2 pl-4 hover:bg-surface-100 rounded-none cursor-pointer transition-colors duration-200">
                         <Avatar :label="userStore.user?.first_name[0]" class="mr-2 cursor-pointer" shape="circle" @click="toggle" />
                         <span class="inline-flex flex-col items-start">
                             <span class="font-bold">{{userStore.user?.first_name}} {{ userStore.user?.last_name }}</span>

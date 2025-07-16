@@ -43,7 +43,7 @@
                     </div>
                     <div class="bg-surface-100 p-1 line-clamp-3 rounded-lg"
                         v-html="item[`description_${$i18n.locale}`] ?? item.description" />
-                    <div>
+                    <div class="flex flex-row gap-2">
                         <Tag v-for="service in item.hotelservice_set.slice(0, 3)" rounded :value="service.service[`name_${$i18n.locale}`] ?? service.service.name"/>
                         <Tag v-if="item.hotelservice_set.slice(3).length > 0" rounded severity="secondary" :value="`${$t('еще')} + ${item.hotelservice_set.slice(0).length}`"/>
                     </div>
