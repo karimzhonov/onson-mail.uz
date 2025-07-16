@@ -26,3 +26,14 @@ export const useHotels = ({params}: {params?: Ref<Record<string, any>>} = {}) =>
         select: (response) => response.data
     })    
 }
+
+export const useHotel = ({id, select}: {id: number | string, select?: (data: Hotel) => Hotel}) => {
+    const {$api} = useNuxtApp()
+    return useQuery({
+        queryKey: ['tourism-hotel', id],
+        queryFn: async () => await $api.get<Hotel>(
+            `/tourism/hotel/hotel/${id}/`,
+        ),
+        select: (response) => select ? select(response.data) : response.data
+    })
+}

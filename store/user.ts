@@ -1,13 +1,12 @@
 import { defineStore } from "pinia";
 import { token } from "~/composables";
+import type { User } from "~/types/user";
 
 export const useUser = defineStore("user", {
-    state: () => ({user: {}}),
+    state: (): {user?: User} => ({}),
     actions: {
-        async fetch_user() {
-            const { $api } = useNuxtApp()
-            const r = await $api.get("/oauth/me/", {}, false, false)
-            this.user = r?.data
+        isAuth() {
+            return computed(() => token.value.access && this.user?.username) 
         },
         logout() {
             token.value = {}

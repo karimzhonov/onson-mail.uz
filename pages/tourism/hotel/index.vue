@@ -14,8 +14,8 @@
             <Loading :loading="isFetching">
                 <DataView lazy :value="data?.results" :layout="'list'" data-key="id" class="rounded-xl">
                     <template #list="slotProps">
-                        <div class="flex flex-col gap-2">
-                            <TourismHotelListItem v-for="(item, index) in slotProps.items" :key="index" :item="item" />
+                        <div class="grid grid-cols-12 gap-2">
+                            <TourismHotelListItem class="col-span-12 md:col-span-6 xl:col-span-4" v-for="(item, index) in slotProps.items" :key="index" :item="item" />
                         </div>
                     </template>
                     <template #empty>

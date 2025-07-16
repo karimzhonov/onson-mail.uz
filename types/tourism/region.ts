@@ -1,19 +1,15 @@
-export interface Country {
+import type { Translations } from ".."
+
+export interface Country extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
     can_from: boolean
     can_to: boolean
     active: boolean
 }
 
 
-export interface Region {
+export interface Region extends Translations {
     id: number
-    name: string
-    name_uz: string
-    name_ru: string
     can_from: boolean
     can_to: boolean
     active: boolean

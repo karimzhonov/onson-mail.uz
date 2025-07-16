@@ -16,7 +16,6 @@
         <div class="relative">
             <h2 class="text-lg font-bold mb-8">{{ $t('Все фильтеры') }}</h2>
             <div class="flex flex-col gap-6">
-
                 <TourismFiltersCountry v-model:model-value="filters.country" :icon="PlaneLanding" />
                 <TourismFiltersRegion v-model:model-value="filters.region" :countries="filters.country" />
                 <TourismHotelFiltersFood v-model:model-value="filters.food" />
@@ -26,7 +25,7 @@
                 <TourismHotelFiltersService v-model:model-value="filters.service" />
             </div>
             <Button text @click="clear" fluid>{{ $t('Отменить') }}</Button>
-            <div class="flex flex-col gap-2 mt-3 sticky bottom-5">
+            <div class="flex flex-col gap-2 mt-3 mx-2 sticky bottom-5">
                 <Button as="router-link" :to="search">{{ $t('Преминить') }}</Button>
             </div>
         </div>
@@ -51,13 +50,13 @@ const filters = ref<{
     service: number[]
     room: number[]
 }>({
-    country: getArrayParam('country'),
-    region: getArrayParam('region'),
-    rating: getNumberParam('rating'),
-    type: getArrayParam('type'),
-    food: getStringArrayParam('food'),
-    service: getArrayParam('service'),
-    room: getArrayParam('country')
+    country: getArrayParam(route.query, 'country'),
+    region: getArrayParam(route.query, 'region'),
+    rating: getNumberParam(route.query, 'rating'),
+    type: getArrayParam(route.query, 'type'),
+    food: getStringArrayParam(route.query, 'food'),
+    service: getArrayParam(route.query, 'service'),
+    room: getArrayParam(route.query, 'country')
 })
 
 const clear = () => {
